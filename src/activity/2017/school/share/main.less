@@ -1,0 +1,126 @@
+@left-padding: 20%;
+
+.share_page {
+  color: #3d0201;
+  font-family: KaiTi;
+  font-size: 30/100rem;
+  padding: 90/100rem 5%;
+  margin-bottom: 25/100rem !important;
+  background: url(./../imgs/img_img_background_word2.png) center/100% 100% no-repeat;
+
+  .show_share_tip{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.7);
+    background-image: url(./../imgs/img_share.png);
+    background-repeat: no-repeat;
+    background-size: 242/100rem 213/100rem;
+    background-position: 98% 100/100rem;
+  }
+
+  .intro {
+    color: #3d0201;
+    font-family: KaiTi;
+    font-size: 30/100rem;
+    text-align: center;
+    color: #3d0201; // margin-left: 20/100rem;
+    width: 70%;
+    line-height: 50/100rem;
+  }
+
+  .click_btn {
+    display: inline-block;
+    width: 310/100rem;
+    height: 76/100rem;
+    line-height: 76/100rem;
+    margin: 50/100rem 0 10/100rem 0;
+    background-size: 100% 100%;
+    background-image: url(./../imgs/btn_enter.png);
+  }
+
+  .title {
+    position: relative;
+    font-size: 34/100rem;
+    text-align: center;
+    height: 80/100rem;
+    line-height: 80/100rem;
+    position: 60% center;
+    .text {
+      position: relative;
+      display: block;
+      height: 100%;
+    }
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      height: 100%;
+      width: 342/100rem;
+      left: 50%;
+      margin-left: -120/100rem;
+      line-height: 80/100rem;
+      background: url(./../imgs/img_background_title.png) center/contain no-repeat;
+    }
+  }
+
+  .item {
+    margin-top: 80/100rem;
+  }
+
+  .prizes {
+    font-size: 30/100rem;
+    &>div {
+      text-align: center;
+    }
+    .prize {
+      height: 146/100rem;
+      margin-top: 45/100rem;
+      display: inline-block;
+      line-height: 48/100rem;
+      padding-top: 35/100rem;
+      padding-left: 205/100rem;
+      background-size: auto 100%;
+      background-repeat: no-repeat;
+      &:first-child {
+        margin-top: 60/100rem;
+        background-image: url(./../imgs/img_guanjun.png);
+      }
+      &:nth-child(2) {
+        background-image: url(./../imgs/img_guanjun.png);
+      }
+      &:nth-child(3) {
+        background-image: url(./../imgs/img_guanjun.png);
+      }
+    }
+    .money {
+      font-size: 34/100rem;
+    }
+  }
+
+  .prizes_intro {
+    text-align: center;
+    margin-top: 40/100rem;
+    line-height: 60/100rem;
+  }
+
+  .official_icons {
+    text-align: center;
+    margin-top: 60/100rem;
+    &>div {
+      display: inline-block;
+      width: 395/100rem;
+    }
+
+    .official_erweima {
+      &>img {
+        display: block;
+        width: 165/100rem;
+        margin: 5/100rem;
+      }
+    }
+  }
+}

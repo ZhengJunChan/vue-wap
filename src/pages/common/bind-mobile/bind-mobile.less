@@ -1,0 +1,70 @@
+@import './../../../less/config.less';
+
+.bind_mobile_page{
+	text-align: center;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: @white-color;
+	padding: 0 80/100rem;
+	font-size: @normal-font;
+	.header_box{
+		color: @grey-color;
+		padding: 60/100rem 0;
+		font-size: @small-font;
+		line-height: 48/100rem;
+	}
+	.input_bar{
+		position: relative;
+		color: @black-font;
+		padding: 45/100rem 0 45/100rem 45/100rem;
+		border-top: 1px solid @split-border-color;
+		background-position: left center;
+		background-repeat: no-repeat;
+		background-size: 28/100rem auto;
+		&>button{
+			display: block;
+			width: 150/100rem;
+			height: 56/100rem;
+			position: absolute;
+			right: 0;
+			top: 50%;
+			margin-top: -28/100rem;
+			line-height: 56/100rem;
+			border-radius: 28/100rem;
+		}
+		&>input{
+			max-width: 65%;
+			// height: 48/100rem;
+			// line-height: 48/100rem;
+			font-size: @normal-font;
+		}
+	}
+
+	.accout{
+		background-image: url(./../../../imgs/common/login_mobile.png);
+	}
+	.code{
+		padding-right: 150/100rem;
+		background-image: url(./../../../imgs/common/login_code.png);
+	}
+
+	.error{
+		position: absolute;
+		bottom: 8/100rem;
+		color: @error-font;
+		font-size: @smallst-font;
+	}
+	.btn{
+		color: @white-color;
+		background-color: @red-btn;
+	}
+	.bind_btn{
+		height: 66/100rem;
+		font-size: @big-font;
+		line-height: 66/100rem;
+		border-radius: 33/100rem;
+	}
+}

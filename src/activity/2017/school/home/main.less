@@ -1,0 +1,74 @@
+@left-padding: 20%;
+
+.home_page {
+  padding: 90/100rem 5%;
+  background: url(./../imgs/img_background_word.png) center/100% 100% no-repeat;
+
+  .input_label {
+    position: relative;
+    margin-bottom: 40/100rem;
+    &>label {
+      width: 20%;
+      height: 100%;
+      line-height: 60/100rem;
+      text-align: center;
+      color: #3d0201;
+      position: absolute;
+      font-size: 34/100rem;
+    }
+
+    .input_box {
+      height: 60/100rem;
+      padding: 0 @left-padding;
+      &>input {
+        display: block;
+        height: 100%;
+        width: 100%;
+        font-size: 30/100rem;
+        border: 1px solid #999;
+        padding-left: 20/100rem;
+        padding-right: 15%;
+        border-radius: 10/100rem;
+      }
+    }
+
+    .error {
+      color: #ff6666;
+      padding: 0 20%;
+      position: absolute;
+      font-size: 0.24rem;
+    }
+  }
+
+  .sex {
+    line-height: 60/100rem;
+    span {
+      padding-left: 30/100rem;
+      background: url(./../imgs/btn_unselected.png) left center no-repeat;
+      background-size: 20/100rem 20/100rem;
+    }
+    .girl {
+      margin-left: 30/100rem;
+    }
+    .selected {
+      background-image: url(./../imgs/btn_selected.png);
+    }
+  }
+
+  .submit_box {
+    padding-left: @left-padding;
+    margin-top: 70/100rem;
+    &>button {
+      width: 60%;
+      color: #3d0201;
+      height: 76/100rem;
+      text-align: center;
+      font-family: KaiTi;
+      font-size: 30/100rem;
+      line-height: 76/100rem;
+      background-color: #fff;
+      background-size: 100% 100%;
+      background-image: url(./../imgs/btn_enter.png);
+    }
+  }
+}

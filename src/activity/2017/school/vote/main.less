@@ -1,0 +1,273 @@
+@left-padding: 20%;
+
+.vote_page {
+  padding-bottom: 60/100rem;
+  background: url(./../imgs/bottom.jpg) center bottom/100% auto no-repeat,
+  url(./../imgs/top.jpg) center top/100% auto no-repeat,
+  url(./../imgs/bg_1.png) center top/100% auto repeat-y;
+  &>div {
+    &:nth-child(2) {
+      margin-top: 0 !important;
+    }
+  }
+
+  li {
+    list-style-type: none;
+  }
+  .header {
+    height: 785/100rem;
+    position: relative;
+
+    .times {
+      position: absolute;
+      text-align: center;
+      padding: 20/100rem 0;
+      color: #fff;
+      width: 320/100rem;
+      top: 50%;
+      margin-top: -0.7rem;
+      left: 50%;
+      margin-left: -2.8rem;
+      background: url(./../imgs/img_time_top.png) center top/100% auto no-repeat,
+      url(./../imgs/img_time_bottom.png) center bottom/100% auto no-repeat;
+    }
+    li {
+      margin-top: 20/100rem;
+      list-style: none;
+      p:first-child {
+        font-size: 26/100rem;
+        font-weight: bold;
+        text-shadow: 0px 6px 0px #000;
+      }
+
+      p:last-child {
+        margin-top: 10/100rem;
+        font-size: 22/100rem;
+        text-shadow: 0px 3px 0px #000;
+      }
+    }
+  }
+
+  .reasults {
+    text-align: center;
+    .title {
+      color: #f7e385;
+      font-size: 28/100rem;
+      margin: 60/100rem 0 40/100rem;
+      &>span {
+        padding: 0 70/100rem;
+        background: url(./../imgs/img_titie_shili2.png) left center/52/100rem 32/100rem no-repeat,
+        url(./../imgs/img_titie_shili.png) right center/52/100rem 32/100rem no-repeat;
+      }
+    }
+
+    .musican {
+      width: 230/100rem;
+      height: 320/100rem;
+      display: inline-block;
+      margin-top: 10/100rem;
+      margin-left: 10/100rem;
+      padding-top: 40/100rem;
+      background-image: url(./../imgs/musician.png);
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      &:nth-child(3n+1) {
+        margin-left: 0;
+      }
+    }
+    .musican_header {
+      border: 1px solid #f7e385;
+    }
+
+    .singer_name {
+      color: #fff;
+      padding: 0 30/100rem;
+      margin-top: 2/100rem;
+      font-size: 24/100rem;
+    }
+
+    .vote_num {
+      font-size: 26/100rem;
+      color: #f7e385;
+      margin-top: 10/100rem;
+      padding: 0 30/100rem;
+    }
+  }
+
+  .works {
+    .work {
+      text-align: center;
+      width: 236/100rem;
+      height: 340/100rem;
+      display: inline-block;
+      margin-top: 10/100rem;
+      margin-left: 10/100rem;
+      padding-top: 13/100rem;
+      background-image: url(./../imgs/bg_zuoping.png);
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      &:nth-child(3n+1) {
+        // margin-left: 0;
+      }
+    }
+
+    .cover {
+      color: #fff;
+      overflow: hidden;
+      width: 212/100rem;
+      height: 160/100rem;
+      margin: 0 auto;
+      position: relative;
+      border: 1px solid #1a180f;
+      background-size: cover;
+    }
+    .serial {
+      position: absolute;
+      left: -0.4rem;
+      top: -0.4rem;
+      font-size: 20/100rem;
+      background: #010102;
+      display: inline-block;
+      height: 80/100rem;
+      width: 80/100rem;
+      line-height: 125/100rem;
+      z-index: 3;
+      transform: rotate(-45deg);
+    }
+    .music_name {
+      position: absolute;
+      font-size: 22/100rem;
+      bottom: 0;
+      width: 100%;
+      padding: 10/100rem 15/100rem;
+      padding: 0 10/100rem;
+      background: rgba(26, 24, 15, 0.5);
+      z-index: 3;
+    }
+
+    .singer_name {
+      margin-top: 15/100rem;
+      font-size: 22/100rem;
+      padding: 0 30/100rem;
+      color: #f7e385;
+      height: 36/100rem;
+      line-height: 30/100rem;
+      img {
+        width: 36/100rem;
+        height: 36/100rem;
+        border-radius: 50%;
+        vertical-align: middle;
+        border: 1px solid #f7e385;
+      }
+    }
+
+    .vote_btn {
+      margin-top: 10/100rem;
+      &>img {
+        width: 135/100rem;
+        height: 43/100rem;
+      }
+      &>button {
+        color: #fff;
+        font-size: 28/100rem;
+        width: 122/100rem;
+        height: 36/100rem;
+        line-height: 36/100rem;
+        background: url(./../imgs/btn_toupiao_normol.png) no-repeat;
+        background-size: 100% 100%;
+        &:active {
+          background-image: url(./../imgs/btn_toupiao_click.png);
+        }
+      }
+    }
+
+    .vote_num {
+      color: #fff;
+      font-size: 22/100rem;
+      margin-top: 5/100rem;
+    }
+  }
+
+  .rater {
+    margin-top: 30/100rem;
+    &>img {
+      max-width: 100%;
+    }
+  }
+
+  .activity_intro {
+    color: #fff;
+    font-size: 24/100rem;
+    padding: 0 10/100rem;
+    &.module {
+      margin-top: 40/100rem;
+    }
+    .content {
+      background-color: rgba(247, 227, 133, 0.1);
+      padding: 15/100rem;
+    }
+
+    .border {
+      padding: 0 50/100rem;
+      border: solid 2px rgba(247, 227, 133, 1);
+      box-shadow: 0 0 5px rgba(247, 227, 133, 0.7);
+      &>div:last-child {
+        margin-bottom: 50/100rem;
+      }
+    }
+
+    .title {
+      text-align: center;
+      font-size: 26/100rem;
+      margin-top: 70/100rem;
+      margin-bottom: 30/100rem;
+      &>span {
+        padding: 0 88/100rem;
+        background: url(./../imgs/img_titie2_shuoming2.png) right center/65/100rem 30/100rem no-repeat,
+        url(./../imgs/img_titie2_shuoming.png) left center/65/100rem 30/100rem no-repeat;
+      }
+    }
+
+    .rules,
+    .tip {
+      line-height: 44/100rem;
+      text-align: left;
+    }
+    .tip {
+      margin-top: 30/100rem;
+    }
+  }
+
+  .partner {
+    text-align: center;
+    width: 710/100rem;
+    margin: 0 auto;
+    ul>li {
+      width: 135/100rem;
+      height: 75/100rem;
+      display: inline-block;
+      margin-left: 8/100rem;
+      margin-bottom: 10/100rem;
+      img {
+        width: 135/100rem;
+        height: 75/100rem;
+      }
+      &:nth-child(5n+1) {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .module {
+    margin-top: 70/100rem;
+    .module_title {
+      text-align: center;
+      margin-bottom: 24/100rem;
+      &>img {
+        width: 100%;
+        height: auto;
+        max-width: 1125/100rem;
+      }
+    }
+  }
+}

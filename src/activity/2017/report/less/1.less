@@ -1,0 +1,124 @@
+.one-page {
+  text-align: center;
+  padding-top: 0.9rem;
+  .content-zone {
+    //height: 8.22rem;
+    //background: url("./../image/P1/bgn.png") no-repeat center;
+    //background-size: cover;
+    .content-img{
+      width: 100%;
+      height: auto;
+      position: relative;
+      z-index: 1;
+    }
+    text-align: center;
+    position: relative;
+    .love-img {
+      width: 0.48rem;
+      height: auto;
+      z-index: 2;
+      position: absolute;
+      right: 1.92rem;
+      bottom: 1.24rem;
+    }
+    .music-img-warp {
+      z-index: 2;
+      width: 5.02rem;
+      margin: 0 auto;
+      position: absolute;
+      top: 2.15rem;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+      -moz-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      -o-transform: translateX(-50%);
+      transform: translateX(-50%);
+      .one {
+        position: absolute;
+        top: 0rem;
+        width: 0.23rem;
+        height: auto;
+        left: 1.66rem;
+      }
+      .two {
+        position: absolute;
+        width: 0.2rem;
+        height: auto;
+        top: 0;
+        right: 1.55rem;
+      }
+    }
+    p {
+      width: 100%;
+      position: absolute;
+      top: 3.82rem;
+      left: 0;
+      z-index: 2;
+      font-size: 0.3rem;
+      line-height: 100%;
+      color: #1a1a1a;
+      span {
+        color: #ff4c55;
+      }
+    }
+  }
+  .is-loading-data {
+    text-align: center;
+    margin-top: 0.8rem;
+    line-height: 100%;
+    padding-bottom: 0.3rem;
+    font-size: 0.26rem;
+    color: #000000;
+    position: relative;
+  }
+  .fail-warp{
+    text-align: center;
+    min-height: 0.32rem;
+    _height: 0.32rem;
+    position: relative;
+    -webkit-transform: translateZ(0);
+    display: inline-block;
+    margin: 0.5rem auto 0;
+    span {
+      line-height: 100%;
+      color: #ff4c55;
+      font-size: 0.32rem;
+      &.small{
+        display: inline-block;
+        font-size: 0.26rem;
+        margin-top: 0.1rem;
+      }
+    }
+  }
+  .title-warp {
+    text-align: center;
+    height: 0.32rem;
+    position: relative;
+    -webkit-transform: translateZ(0);
+    display: inline-block;
+    margin: 0.66rem auto 0;
+    padding-left: 0.79rem;
+    > * {
+      display: inline-block;
+      vertical-align: top;
+    }
+    span {
+      line-height: 100%;
+      color: #ff4c55;
+      font-size: 0.32rem;
+    }
+    .gift-img {
+      margin-right: 0.2rem;
+      width: 0.59rem;
+      height: auto;
+      transform-origin: 0.16rem bottom;
+      -webkit-transform-origin: 0.16rem bottom;
+      -webkit-animation: onePageGift 2s linear 2ms infinite;
+      -o-animation: onePageGift 2s linear 2ms infinite;
+      animation: onePageGift 2s linear 2ms infinite;
+      position: absolute;
+      left: 0;
+      top: -0.1rem;
+    }
+  }
+}

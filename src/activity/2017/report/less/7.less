@@ -1,0 +1,108 @@
+.seven-page {
+  padding-top: 1.1rem;
+  .content {
+    margin: 0 auto;
+    width: 7.06rem;
+    position: relative;
+    -webkit-animation:twoPageContent 0.6s ease-out 1;
+    -o-animation:twoPageContent 0.6s ease-out 1;
+    animation:twoPageContent 0.6s ease-out 1;
+    #music-img-warp{
+      position: absolute;
+      z-index: 5;
+      right: 0.9rem;
+      top: 1.5rem;
+      height: 1.5rem;
+      width: 2rem;
+    }
+    .music-one{
+      //position: absolute;
+      //width: 0rem;
+      //height:auto;
+
+      -webkit-animation:sevenPageMusic 4s linear infinite;
+      -o-animation:sevenPageMusic 4s linear infinite;
+      animation:sevenPageMusic 4s linear infinite;
+    }
+    .music-two{
+      -webkit-animation:sevenPageMusic 4s linear 2s infinite;
+      -o-animation:sevenPageMusic 4s linear 2s infinite;
+      animation:sevenPageMusic 4s linear 2s infinite;
+    }
+    > .img-frame {
+      width: 100%;
+      height: auto;
+    }
+    .number-warp {
+      -webkit-animation:twoPageContentText 1.5s linear 1;
+      -o-animation:twoPageContentText 1.5s linear 1;
+      animation:twoPageContentText 1.5s linear 1;
+      width: 4.76rem;
+      height: 2.58rem;
+      top: 1.4rem;
+      left: 1.5rem;
+      position: absolute;
+      -webkit-transform: rotate(-11deg);
+      -moz-transform: rotate(-11deg);
+      -ms-transform: rotate(-11deg);
+      -o-transform: rotate(-11deg);
+      transform: rotate(-11deg);
+      display: block;
+      > div {
+        height: 0.3rem;
+        color: #1a1a1a;
+        font-size: 0.3rem;
+        &.type {
+
+          .one {
+            position: relative;
+            top: 0.1rem;
+            width: 0.43rem;
+            height: auto;
+          }
+          .two {
+            top: 0.12rem;
+            width: 0.52rem;
+            height: auto;
+          }
+        }
+        span {
+          color: #ff4c55;
+          font-size: 0.36rem;
+        }
+        &.name-music{
+          height: 0.5rem;
+          margin-bottom: 0.24rem;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+        margin-bottom: 0.44rem;
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+  .end-zone {
+    position: relative;
+    .text {
+      height: 3.54rem;
+      line-height: 3.54rem;
+      color: #1a1a1a;
+      font-size: 0.3rem;
+      padding-left: 1.3rem;
+    }
+    .img-warp {
+      position: absolute;
+      right: 0.88rem;
+      top: 0;
+      width: 2.69rem;
+      height: 3.17rem;
+      > img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}

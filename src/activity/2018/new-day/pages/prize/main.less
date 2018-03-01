@@ -1,0 +1,48 @@
+.prize_page {
+  // position: relative;
+  // min-height: 100vh;
+  .top_tip{
+    color: #4d4d4d;
+    text-align: center;
+    font-size: 24/100rem;
+    background-color: #efeff4;
+    padding: 15/100rem 30/100rem;
+  }
+
+  ul{
+    padding: 50/100rem;
+
+    li{
+      height: 56/100rem;
+      position: relative;
+      padding-right: 140/100rem;
+
+      &+li{
+        margin-top: 24/100rem;
+      }
+
+      .accept{
+        color: #fff;
+        font-size: 24/100rem;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        margin-top: -28/100rem;
+        width: 120/100rem;
+        height: 56/100rem;
+        border-radius: 10/100rem;
+        background-color: #ff4c55;
+        &:disabled{
+          background-color: #cccccc;
+        }
+      }
+    }
+  }
+
+  .empty{
+    // position: absolute;
+    // width: 100%;
+    // top: 50%;
+    margin-top: 200/100rem;
+  }
+}

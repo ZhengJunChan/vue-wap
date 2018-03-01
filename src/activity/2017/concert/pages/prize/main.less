@@ -1,0 +1,386 @@
+.prize_page {
+  .content {
+    padding-bottom: 100/100rem;
+    background: url(./../../imgs/bg_choujiang.png) left top/100% auto no-repeat #ffe821;
+
+    .title {
+      height: 200/100rem;
+      background: url(./../../imgs/img_title_duihuan.png) center/contain no-repeat;
+    }
+
+    .prize_img {
+      width: 750/100rem;
+      margin: 0 auto;
+      .header {
+        position: relative;
+        height: 670/100rem;
+        padding-top: 156/100rem;
+        background: url(./../../imgs/img_laohuji1.png) center bottom/100% 100% no-repeat;
+      }
+
+      .body {
+        padding: 0 120/100rem;
+        background: url(./../../imgs/img_laohuji2.png) center/100% auto repeat-y;
+      }
+
+      .footer {
+        height: 90/100rem;
+        background: url(./../../imgs/img_laohuji3.png) center top/100% 100% no-repeat;
+      }
+    }
+
+    .screen {
+      margin: 0 auto;
+      width: 512/100rem;
+      height: 210/100rem;
+      overflow: hidden;
+      position: relative;
+      background-color: #fff;
+      border-radius: 24/100rem;
+
+      &:before,
+      &:after {
+        content: '';
+        display: block;
+        height: 100%;
+        position: absolute;
+      }
+      &:before {
+        z-index: 5;
+        width: 100%;
+        background: url(./../../imgs/img_pingmu.png) center/100% 100% no-repeat;
+      }
+      &:after {
+        z-index: 4;
+        left: 250/100rem;
+        width: 12/100rem;
+        background: url(./../../imgs/img_pingmu2.png) center/100% 100% no-repeat;
+      }
+      &>div{
+        width: 100%;
+        z-index: 1;
+        position: absolute;
+      }
+      .item{
+        background-color: #fff;
+        img{
+          width: 260/100rem;
+          height: 140/100rem;
+        }
+        &>.fr{
+          width: 49%;
+          color: #ff3546;
+          overflow: hidden;
+          font-weight: 900;
+          height: 140/100rem;
+          text-align: center;
+          line-height: 140/100rem;
+        }
+        &.item{
+          margin-top: 10/100rem;
+        }
+      }
+    }
+
+    .counts_tip {
+      color: #fff;
+      margin-top: 50/100rem;
+      margin-left: 168/100rem;
+      width: 397/100rem;
+      height: 48/100rem;
+      text-align: center;
+      font-size: 26/100rem;
+      line-height: 48/100rem;
+    }
+    .press_btn {
+      color: #fff;
+      display: block;
+      width: 450/100rem;
+      height: 100/100rem;
+      text-align: center;
+      font-size: 32/100rem;
+      margin-top: 35/100rem;
+      margin-left: 137/100rem;
+      padding-bottom: 30/100rem;
+      text-shadow: 0 3px 1px rgba(114, 0, 0, 0.8);
+      background: url(./../../imgs/btn_choujiang_normal.png) center bottom/100% auto no-repeat;
+      &:active {
+        padding-bottom: 10/100rem;
+        background-image: url(./../../imgs/btn_choujiang_press.png);
+      }
+    }
+
+    .rocker {
+      position: absolute;
+      left: 50%;
+      height: 164/100rem;
+      top: 292/100rem;
+      margin-left: 285/100rem;
+      &>div {
+        width: 20/100rem;
+        height: 140/100rem;
+        position: relative;
+        img {
+          position: absolute;
+        }
+      }
+      .ball {
+        transition: top 0.3s;
+        width: 50/100rem;
+        height: 50/100rem;
+        z-index: 1;
+        top: -30/100rem;
+        left: -8/100rem;
+      }
+      .pole {
+        transition: height 0.3s;
+        width: 21/100rem;
+        height: 135/100rem;
+        bottom: 0;
+      }
+      &.rocking {
+        .ball {
+          top: 50/100rem;
+        }
+        .pole {
+          height: 70/100rem;
+        }
+      }
+    }
+    .for_addr{
+      height: 44/100rem;
+      margin-top: -44/100rem;
+    }
+
+    .logo {
+      margin: 0 auto;
+      width: 183/100rem;
+      height: 61/100rem;
+      &>img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .got_prize_list {
+      color: #fff;
+      padding-top: 1px;
+      li {
+        width: 100%;
+        margin-top: 15/100rem;
+        list-style-type: none;
+        min-height: 55/100rem;
+        line-height: 55/100rem;
+        position: relative;
+        padding-right: 100/100rem;
+      }
+
+      .to_get,
+      .got {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        margin-top: -28/100rem;
+        width: 88/100rem;
+        height: 55/100rem;
+        line-height: 55/100rem;
+        text-align: center;
+      }
+
+      .to_get {
+        border-radius: 10/100rem;
+        background-color: #f5c519;
+        &:active{
+          background-color: #f29f01;
+        }
+      }
+
+      .got {
+        color: #bf7d00;
+      }
+    }
+
+    .ios_intro {
+      margin-top: 20/100rem;
+      margin-bottom: -25/100rem;
+      text-align: center;
+      font-size: 24/100rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .rule {
+      background-color: #fff;
+      border-radius: 12/100rem;
+      margin: 80/100rem 25/100rem 0;
+      border: solid 3/100rem #572800;
+      padding: 0 45/100rem 50/100rem;
+    }
+
+    .rule_title {
+      height: 80/100rem;
+      margin-top: -45/100rem;
+      background: url(./../../imgs/img_title_guize.png) center/410/100rem 80/100rem no-repeat;
+    }
+
+    .rule_intro {
+      color: #572800;
+      font-size: 28/100rem;
+      margin-top: 45/100rem;
+      line-height: 44/100rem;
+    }
+  }
+
+  .alert_panel_component {
+    .input_exchange_num {
+      .coupon {
+        display: block;
+        width: 100%;
+        text-align: center;
+        height: 67/100rem;
+        margin-top: 30/100rem;
+        line-height: 67/100rem;
+        border-radius: 5/100rem;
+        background-color: #f5f5f5;
+      }
+
+      .lead {
+        margin-top: 20/100rem;
+        &>img {
+          width: 240/100rem;
+          height: 107/100rem;
+        }
+        &>p {
+          color: #1a1717;
+          width: 170/100rem;
+          font-size: 24/100rem;
+          line-height: 36/100rem;
+        }
+      }
+    }
+
+    .get_prize_num {
+      display: flex;
+      flex-wrap: wrap;
+      /*   图片反动效果   */
+      .flip_wrap {
+        width: 110/100rem;
+        height: 110/100rem;
+        margin: 30/100rem auto 0;
+        perspective: 800px;
+        /*perspective属性定义3D元素距视图的距离,以像素计。该属性允许您改变 3D 元素查看 3D 元素的视图。*/
+        -webkit-perspective: 800px;
+        -moz-perspective: 800px;
+        -ms-perspective: 800px;
+        -o-perspective: 800px;
+      }
+      .flip {
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        /*背对屏幕时隐藏*/
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        -ms-backface-visibility: hidden;
+        -o-backface-visibility: hidden;
+        transition: all 1s ease;
+        /*为翻牌添加过渡效果*/
+        -webkit-transition: all 1s ease;
+        -moz-transition: all 1s ease;
+        -ms-transition: all 1s ease;
+        -o-transition: all 1s ease;
+        transform-style: preserve-3d;
+        /*子元素将保留其 3D 位置。*/
+      }
+      .side {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background-color: #fff;
+        /*让背面和正面重叠*/
+        left: 50%;
+        margin-left: -55/100rem;
+
+        background-color: #fff;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+      }
+      .front {
+        z-index: 2;
+        background-image: url(./../../imgs/img_yuanxiaoyi.png);
+      }
+      .back {
+        text-align: center;
+        font-size: 32/100rem;
+        line-height: 110/100rem;
+        transform: rotateY(180deg);
+        -webkit-transform: rotateY(180deg);
+        -moz-transform: rotateY(180deg);
+        -ms-transform: rotateY(180deg);
+        -o-transform: rotateY(180deg);
+      }
+      .flip_wrap {
+        &.checked {
+          .front {
+            background-image: url(./../../imgs/img_yuanxiaoyi3.png);
+          }
+          .back {
+            font-size: #808080;
+            background-image: url(./../../imgs/img_yuanxiaoyi2.png) !important;
+          }
+        }
+        &.active,
+        &.all {
+          .flip {
+            transform: rotateY(180deg);
+            -webkit-transform: rotateY(180deg);
+            -moz-transform: rotateY(180deg);
+            -ms-transform: rotateY(180deg);
+            -o-transform: rotateY(180deg);
+          }
+          .front {
+            display: none;
+          }
+        }
+        &.active {
+          .back {
+            color: #ff4c55;
+            background-image: url(./../../imgs/img_yuanxiaoyi4.png) !important;
+          }
+        }
+      }
+      /*   /  图片反动效果   */
+      .prise_tip {
+        width: 100%;
+        color: #676c6b;
+        text-align: center;
+        font-size: 28/100rem;
+        margin: 60/100rem 0;
+      }
+    }
+  }
+
+  /*   活动未开始提示  */
+  .unstart_box {
+    margin-top: 323/100rem;
+    text-align: center;
+    .yxy {
+      width: 390/100rem;
+      height: 294/100rem;
+    }
+
+    .text_tip {
+      width: 342/100rem;
+      height: 60/100rem;
+      margin-top: 60/100rem;
+    }
+
+    .back_btn {
+      display: inline-block;
+      width: 240/100rem;
+      height: 58/100rem;
+      margin-top: 23/100rem;
+      background: url(./../../imgs/btn_ente.png) left top/100% 100% no-repeat;
+    }
+  }
+  /*   /  活动未开始提示  */
+}

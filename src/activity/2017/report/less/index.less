@@ -1,0 +1,118 @@
+.activity-report-2017{
+  width: 100%;
+  min-height: 100%;
+  _height: 100%;
+  position: relative;
+  overflow: hidden;
+  height: auto;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  box-sizing: border-box;
+  .all-page-content{
+    height: 100%;
+    width: 100%;
+    position: relative;
+  }
+  &.has-report-data{
+    .play-icon-zone{
+      .playing{
+        -webkit-animation:musicCircle 5s linear infinite;
+        -o-animation:musicCircle 5s linear infinite;
+        animation:musicCircle 5s linear infinite;
+        //&.paused{
+        //  //-webkit-animation:musicCircle 5s linear infinite;
+        //  //-o-animation:musicCircle 5s linear infinite;
+        //  //animation:musicCircle 5s linear infinite;
+        //  -o-animation-play-state:paused;
+        //  animation-play-state:paused;
+        //  -webkit-animation-play-state:paused; /* Safari 和 Chrome */
+        //}
+      }
+      .running{
+        -webkit-animation:musicCircle 5s linear infinite;
+        -o-animation:musicCircle 5s linear infinite;
+        animation:musicCircle 5s linear infinite;
+        -o-animation-play-state:running;
+        animation-play-state:running;
+        -webkit-animation-play-state:running; /* Safari 和 Chrome */
+        animation-play-state:running;
+        -webkit-animation-play-state:running; /* Safari 和 Chrome */
+      }
+    }
+  }
+  *{
+    font-family: "PingFang SC", "Microsoft YaHei", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei";
+    box-sizing: border-box;
+    font-size: 0;
+    -webkit-backface-visibility:hidden;
+    -webkit-transform-style: preserve-3d;
+  }
+  //overflow: hidden;
+  background: url("./../image/indexbg.jpg") no-repeat center ;
+  background-size: 100% auto;
+  -webkit-transform: translateZ(0);
+  .report-2017-children{
+    box-sizing: content-box;
+
+
+    padding-bottom: 1.02rem;
+    &.report-2017-showUp{
+      padding-bottom: 1.72rem;
+    }
+  }
+  .play-icon-zone{
+    display: inline-block;
+    position: absolute;
+    right: 0.35rem;
+    top: 0.29rem;
+    z-index: 99;
+    img{
+      width: 0.47rem;
+      height: auto;
+    }
+    //.playing{
+    //  -webkit-animation:musicCircle 5s linear infinite;
+    //  -o-animation:musicCircle 5s linear infinite;
+    //  animation:musicCircle 5s linear infinite;
+    //  &.paused{
+    //    //-webkit-animation:musicCircle 5s linear infinite;
+    //    //-o-animation:musicCircle 5s linear infinite;
+    //    //animation:musicCircle 5s linear infinite;
+    //    -o-animation-play-state:paused;
+    //    animation-play-state:paused;
+    //    -webkit-animation-play-state:paused; /* Safari 和 Chrome */
+    //  }
+    //}
+  }
+  .bottom-logo-zone{
+    //background-color: red;
+    z-index: 99;
+      position: absolute;
+      bottom: 0;
+    left: 50%;
+    display: inline-block;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    padding-bottom: 0.22rem;
+    text-align: center;
+    .go-up{
+      display: inline-block;
+      margin-bottom: 0.46rem;
+      img{
+        -webkit-animation:showUpAni 2.2s ease infinite;
+        -o-animation:showUpAni 2.2s ease infinite;
+        animation:showUpAni 2.2s ease infinite;
+        height:0.15rem;
+        width: auto;
+      }
+    }
+    .logo{
+      height: 0.24rem;
+      width: auto;
+    }
+  }
+}

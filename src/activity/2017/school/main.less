@@ -1,0 +1,60 @@
+.dream_activity_page {
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 1px;
+  padding-top: 100/100rem;
+  min-height: 100vh;
+  background-image: url(./imgs/img_background.png);
+  background-color: #f874a7;
+  background-size: 100% auto;
+  background-position: center top;
+  background-repeat: no-repeat;
+  &.baoming_page {
+    padding-top: 0;
+    overflow: hidden;
+    .people {
+      top: 367/100rem;
+    }
+    .baoming_tip {
+      display: block;
+    }
+  }
+
+  .baoming_tip {
+    display: none;
+    padding: 45/100rem 0;
+    text-align: center;
+    .baoming {
+      width: auto;
+      height: 142/100rem;
+    }
+  }
+
+  .title {
+    margin: 0 15/100rem 5/100rem;
+    &>img {
+      width: 100%;
+    }
+  }
+
+  .time {
+  	text-align: center;
+    font-family: KaiTi;
+    font-size: 32/100rem;
+    color: #ffffff;
+  	margin: 40/100rem 0;
+    text-shadow: #000 1px 0 0, #000 0 1px 0, #000 -1px 0 0, #000 0 -1px 0;
+  }
+
+  .people {
+    position: absolute;
+    right: 0;
+    top: 237/100rem;
+    width: 277/100rem;
+    z-index: 20;
+  }
+
+  .container {
+    margin: 0 30/100rem;
+  }
+}

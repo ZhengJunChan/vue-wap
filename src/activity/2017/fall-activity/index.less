@@ -1,0 +1,90 @@
+.n_c{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+}
+.y_c{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+}
+.fall_activity_page{
+  background: url("./img/big_img.png") repeat;
+  font-family: KaiTi;
+  /*头图部分*/
+  .nav_top{
+    position: relative;
+    width: 100%;
+    img{
+      width: 100%;
+    }
+    .nav_explain{
+      width: 6.4rem;
+      color: #f1f1f1;
+      font-size: .28rem;
+      font-weight: 400;
+      line-height: .4rem;
+      bottom: 1.6rem;
+      p{
+        text-indent: 1em;
+      }
+    }
+  }
+  /*导航切换部分*/
+  .nav_switch{
+    padding: .5rem .15rem;
+    box-sizing: border-box;
+    text-align: center;
+    .nav_box{
+      display: inline-block;
+      background: url("./img/nav_menu.png") center no-repeat;
+      background-size: cover;
+      width: 1.72rem;
+      height: .77rem;
+      line-height: .77rem;
+      text-align: center;
+      font-size: .3rem;
+      color: #3b414c;
+      font-family: "Kai Ti";
+      position: relative;
+      margin-right: .1rem;
+    }
+    li:last-child{
+      margin-right: 0;
+    }
+    .router-link-active,.active{
+      color: #fff;
+      background: url("./img/nav_down_menu.png") center no-repeat;
+      &:after{
+        position: absolute;
+        content: '';
+        background: url("./img/nav_menu_pre.png") center no-repeat;
+        background-size: cover;
+        bottom: -.25rem;
+        width: 1.45rem;
+        height: .12rem;
+        left: 50%;
+        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+      }
+    }
+  }
+  /*活动尾部*/
+  .fall_footer{
+    background: url("./img/bj_footer.png") center no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 1.74rem;
+  }
+}

@@ -1,0 +1,169 @@
+@yellow: #fef1b2;
+@radius: 8/100rem;
+
+.cards_page {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #e6373d;
+
+  .card_box {
+    flex: 1;
+    text-align: center;
+    padding-top: 50/100rem;
+    background: url(./imgs/bg_newyear_common.png) center/100% 100% no-repeat;
+    .img_show {
+      width: 488/100rem;
+      height: 650/100rem;
+    }
+    .alert_rule_btn {
+      margin-top: 30/100rem;
+      width: 300/100rem;
+      height: 60/100rem;
+      line-height: 60/100rem;
+      font-size: 22/100rem;
+      color: @yellow;
+      background: url(./imgs/icon_newyear_button.png) center/100% 100% no-repeat;
+    }
+    &.empty {
+      img {
+        -webkit-filter: grayscale(100%);
+        -o-filter: grayscale(100%);
+        -moz-filter: grayscale(100%);
+        -ms-filter: grayscale(100%);
+        filter: grayscale(100%);
+      }
+    }
+  }
+
+  .cards {
+    padding: 30/100rem 0;
+    display: flex;
+    justify-content: center;
+
+    li {
+      width: 158/100rem;
+      text-align: center;
+
+      &+li {
+        margin-left: 22/100rem;
+      }
+      &.empty {
+        .item {
+          &>div {
+            -webkit-filter: grayscale(100%);
+            -o-filter: grayscale(100%);
+            -moz-filter: grayscale(100%);
+            -ms-filter: grayscale(100%);
+            filter: grayscale(100%);
+          }
+        }
+
+        .card_name {
+          color: #cfcfcf;
+        }
+      }
+      .item {
+        padding: 4/100rem;
+        height: 211/100rem;
+        border-radius: @radius;
+        border: solid 1px #d9363b;
+        &.selected {
+          border-color: #fef1b2;
+        }
+        &>div {
+          position: relative;
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .card_img {
+        width: 100%;
+        height: 100%;
+        border-radius: @radius;
+      }
+      .num_tip {
+        color: #d9363b;
+        border-radius: 50%;
+        position: absolute;
+        width: 36/100rem;
+        height: 36/100rem;
+        line-height: 36/100rem;
+        top: -12/100rem;
+        right: -12/100rem;
+        text-align: center;
+        font-size: 26/100rem;
+        background-color: #edd095;
+      }
+      .card_name {
+        color: @yellow;
+        margin-top: 6/100rem;
+        font-size: 24/100rem;
+      }
+    }
+  }
+  .dialog {
+    .prize_alert {
+      margin: 0 auto;
+      width: 567/100rem;
+      height: 613/100rem;
+      background: url(./imgs/newyewr_Package_bg.png) center/100% 100% no-repeat;
+      .accept_btn {
+        color: #785505;
+        width: 376/100rem;
+        height: 63/100rem;
+        text-align: center;
+        font-size: 30/100rem;
+        margin-top: 512/100rem;
+        background-color: #dcb459;
+      }
+    }
+
+    .rule_alert {
+      margin: 0 auto;
+      position: relative;
+      width: 660/100rem;
+      padding-top: 10/100rem;
+      .header_top {
+        width: 100%;
+        position: absolute;
+        left: 50%;
+        top: 0;
+        z-index: 2;
+        margin-left: -330/100rem;
+      }
+      .time{
+        font-size: 28/100rem;
+        margin: 34/100rem 0;
+        text-align: center;
+      }
+      .rule_info {
+        width: 610/100rem;
+        margin: 0 auto;
+        overflow: auto;
+        text-align: left;
+        max-height: 752/100rem;
+        background-color: #fdefd3;
+        padding: 50/100rem 35/100rem;
+      }
+    }
+
+    .close_btn {
+      fill: #fff;
+      margin-top: 30/100rem;
+    }
+  }
+
+  .title {
+    height: 100/100rem;
+    .text {
+      &>span {
+        color: #fff;
+        width: 100/100rem;
+        font-size: 34/100rem;
+        line-height: 100/100rem;
+        background-image: url(./imgs/bg_newyear_rule.png);
+      }
+    }
+  }
+}

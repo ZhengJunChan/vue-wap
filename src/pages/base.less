@@ -1,0 +1,29 @@
+@import './../less/config.less';
+
+.page_module {
+  min-height: 100vh;
+  position: relative;
+  padding-top: 100/100rem;
+  padding-bottom: 100/100rem;
+
+  &.wei_xin {
+    padding-top: 0;
+    .header_label {
+      display: none;
+    }
+  }
+
+  .header_label {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 99;
+  }
+
+  .download {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 99;
+  }
+}

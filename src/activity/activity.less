@@ -1,0 +1,35 @@
+
+.activity_module{
+  height: 100vh;
+  position: relative;
+  padding-top: 100/100rem;
+  padding-bottom: 100/100rem;
+	
+  &.wei_xin,
+  &.from_app {
+    padding-top: 0;
+    padding-bottom: 0;
+    .header_label,
+    .download {
+      display: none;
+    }
+  }
+
+  .header_label {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 99;
+  }
+
+  .download {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 99;
+  }
+
+	.activity_page{
+		height: 100%;
+	}
+}

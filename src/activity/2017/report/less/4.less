@@ -1,0 +1,135 @@
+.four-page {
+  padding-top: 1.4rem;
+  .head-title-zone {
+    position: relative;
+    padding-left: 1.4rem;
+    height: 0.4rem;
+    margin-bottom: 0.68rem;
+    > * {
+      display: inline-block;
+      vertical-align: top;
+    }
+    .love-warp {
+      position: absolute;
+      left: 0.6rem;
+      width: 1.1rem;
+      height: 0.7rem;
+      top: 0.2rem;
+      -webkit-transform: translateY(-100%);
+      -moz-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
+      -o-transform: translateY(-100%);
+      transform: translateY(-100%);
+      text-align: right;
+    }
+    p {
+      font-size: 0.4rem;
+      color: #1a1a1a;
+      line-height: 100%;
+    }
+    > .top10 {
+      margin-left: 0.1rem;
+      height: 0.56rem;
+      position: relative;
+      top: -0.18rem;
+    }
+  }
+  .content-zone {
+    .fade-enter-active {
+      transition: all 1s ease;
+    }
+    .fade-enter, .fade-leave-active {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    .list-warp {
+      list-style: none;
+      width: 5.7rem;
+      margin: 0 auto;
+      &.is-top5 {
+        .list-item {
+          margin-bottom: 0.54rem;
+        }
+      }
+      .list-item {
+        margin-bottom: 0.22rem;
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+        height: 0.5rem;
+        width: 100%;
+        line-height: 0.46rem;
+        color: #5a3782;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        background-color: #ffffff;
+        border-radius: 0.24rem;
+        border: solid 0.02rem rgba(90, 55, 130, 1);
+        font-size: 0.3rem;
+        padding: 0 0.4rem 0 0.36rem;
+        &.color-list0 {
+          background-color: #fbdbdd;
+        }
+        &.color-list1 {
+          background-color: rgba(253, 237, 238, 1);
+        }
+        &.color-list2 {
+          background-color: rgba(253, 237, 238, 1);
+        }
+      }
+    }
+  }
+}
+
+.four-page-little-song {
+  padding-top: 2.16rem;
+  .content-zone {
+    text-align: center;
+    .head-warp {
+      margin: 0 auto;
+      width: 2.3rem;
+      height: 2.3rem;
+      border: 0.02rem solid #5a3782;
+      border-radius: 0.28rem;
+      background: url("./../image/P3/star1@2x.png") no-repeat center;
+      background-size: cover;
+    }
+    .text-warp {
+      display: inline-block;
+      white-space: nowrap;
+      .title {
+        color: #1a1a1a;
+        font-size: 0.3rem;
+        line-height: 100%;
+        position: relative;
+        margin-top: 1.06rem;
+        .img-warp {
+          position: absolute;
+          bottom: 100%;
+          left: 45%;
+          .one {
+            position: absolute;
+            bottom: 0.24rem;
+            width: 0.25rem;
+            left: -0.08rem;
+            height: auto;
+          }
+          .two {
+            left: 0.1rem;
+            position: absolute;
+            width: 0.15rem;
+            bottom: 0.12rem;
+            height: auto;
+          }
+        }
+      }
+      .name {
+        margin-top: 0.36rem;
+        font-size: 0.34rem;
+        line-height: 100%;
+        color: #ff4c55;
+      }
+    }
+  }
+}

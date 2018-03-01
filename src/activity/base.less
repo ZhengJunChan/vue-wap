@@ -1,0 +1,61 @@
+  * {
+    box-sizing: border-box;
+  }
+
+  img,
+  input,
+  textarea,
+  button {
+    outline: none;
+    border: none;
+  }
+
+  li {
+    list-style-type: none;
+  }
+  /**
+ * [text_nowrap_ellipsis 文字超出后添加省略号]
+ * @Author   郑君婵
+ * @DateTime 2017-06-30
+ */
+
+  .text_nowrap_ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  /**
+ * [clear_float 清除浮动]
+ * @Author   郑君婵
+ * @DateTime 2017-06-30
+ */
+
+  .clear_float {
+    zoom: 1;
+  }
+
+  .clear_float:after {
+    display: block;
+    clear: both;
+    content: "";
+    visibility: hidden;
+    height: 0
+  }
+  /**
+ * [clear_float 向左浮动]
+ * @Author   郑君婵
+ * @DateTime 2017-07-1
+ */
+
+  .fl {
+    float: left;
+  }
+  /**
+ * [clear_float 向右浮动]
+ * @Author   郑君婵
+ * @DateTime 2017-07-1
+ */
+
+  .fr {
+    float: right;
+  }

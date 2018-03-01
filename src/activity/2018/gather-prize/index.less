@@ -1,0 +1,42 @@
+.gather-prize-page{
+  *{
+    font-family: "PingFang SC", "Microsoft YaHei", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei";
+  }
+  &.is-in-app{
+    z-index: 6;
+    height: 100vh;
+    position: fixed;
+  }
+    position: relative;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 4;
+    height: auto;
+    min-height: 100%;
+    background: url("./img/bg_newyear_common.png") no-repeat center;
+    background-size: cover;
+  .gather-prize-main-zone{
+    position: relative;
+    height: 100%;
+    overflow: auto;
+    min-height: 100%;
+  }
+  .gather-prize-content{
+    position: relative;
+    z-index: 2;
+    padding-bottom: 0rem;
+  }
+  >.footer{
+    width: 100%;
+    height: auto;
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+  }
+}
+.just-for-height{
+  height: 1000px;
+  opacity: 0;
+}

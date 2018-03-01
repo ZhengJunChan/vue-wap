@@ -1,0 +1,106 @@
+@import './../../less/config.less';
+
+.music_header_component {
+  height: 330/100rem;
+  overflow: hidden;
+  color: @white-color; // background-color: @white-color;
+  &.like{
+    height: 257/100rem;
+  }
+
+  .content{
+    padding: @padding-30 0;
+    height: 330/100rem;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  .cover_img {
+    width: 220/100rem;
+    height: 220/100rem;
+    // margin-top: @padding-20;
+    margin-left: @padding-20;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .title {
+    position: absolute; // color: @white-color;
+    font-size: @big-font;
+    left: 260/100rem;
+    top: 30/100rem;
+    font-weight: bold;
+  }
+
+  .singer_info,
+  .play_btn {
+    position: absolute;
+    left: 260/100rem;
+    top: 170/100rem;
+  }
+
+  .singer_info{
+    height: 60/100rem;
+    line-height: 60/100rem;
+  }
+
+  .play_btn {
+    padding-left: @padding-50;
+    background-size: 36/100rem;
+    background-repeat: no-repeat;
+    background-position: left center;
+  }
+
+  .singer_name {
+    display: inline-block;
+    max-width: 396/100rem;
+    padding: 0 50/100rem 0 15/100rem;
+    background: url(./../../imgs/common/icon-arrow-left.png) right center no-repeat;
+    background-size: 12/100rem 22/100rem;
+  }
+
+  .icons {
+    margin-top: 25/100rem;
+    .item {
+      position: relative;
+      text-align: center;
+      &>span {
+        padding-left: @padding-50;
+        background-size: 36/100rem;
+        background-repeat: no-repeat;
+        background-position: left center;
+      }
+      &+.item {
+        // border-left: 1px solid rgba(255, 255, 255, 0.2);;
+        &:before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 50%;
+          width: 1px;
+          height: 30/100rem;
+          margin-top: -15/100rem;
+          background-color: rgba(255, 255, 255, 0.2);
+        }
+      }
+    }
+
+    .disscuss {
+      background-image: url(./../../imgs/common/icon_music_pinlun.png);
+    }
+
+    .collect {
+      background-image: url(./../../imgs/common/icon_music_soucang.png);
+    }
+
+    .doughnut {
+      background-image: url(./../../imgs/common/icon_music_tiantianquan.png);
+    }
+
+    .zan {
+      background-image: url(./../../imgs/common/icon_music_zan.png);
+    }
+  }
+
+  .play {
+    background-image: url(./../../imgs/common/icon_music_play.png);
+  }
+}
