@@ -3,7 +3,7 @@ const songSheet = [{
     component: resolve => require(['@/pages'], resolve),
     children: [{
         path: ':id',
-        name: 'songSheetDetails',
+        // name: 'songSheetDetails',
         component: resolve => require(['@/pages/song-sheet/sheet-detail'], resolve)
     }]
 }, {
@@ -11,7 +11,10 @@ const songSheet = [{
     component: resolve => require(['@/pages'], resolve),
     children: [{
         path: ':id',
-        name: 'musicDetails',
+        meta: {
+            downloadLabelName: '下载歌曲'
+        },
+        // name: 'musicDetails',
         component: resolve => require(['@/pages/song-sheet/music-detail'], resolve)
     }]
 }];

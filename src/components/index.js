@@ -29,6 +29,13 @@ import Cell from './cell';                      // 标题栏
 import HeaderLabel from './header-label';                      // 返回头部
 import Scroller from './scroller';                      // 返回头部
 import AlertPanel from './alert-panel';                      // 确定弹框
+import AlertBox from './alert';                      // 确定弹框
+import MessageAlert from './message-board/alert';
+import MessageBoard from './message-board/board';                      // 确定弹框
+import IconZan from './icon/zan';
+import LoginAlert from './alert/login';
+import UserHeaderLabel from './user-header-label';
+import Location from './location';
 
 export {
     Swiper,
@@ -60,5 +67,12 @@ export {
     Cell,
     HeaderLabel,
     Scroller,
-    AlertPanel
+    AlertPanel,
+    MessageBoard,
+    MessageAlert,
+    IconZan,
+    LoginAlert,
+    UserHeaderLabel,
+    Location,
+    AlertBox
 };

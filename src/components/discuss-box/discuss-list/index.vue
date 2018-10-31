@@ -2,7 +2,7 @@
 
 <template>
 <div class="discuss_list_component">
-    <discuss-item class="item" v-for="(item, index) in list" :key="item.id" :info="item" v-if="!maxNum || index < maxNum"></discuss-item>
+    <discuss-item class="item" v-for="(item, index) in list" :key="item.id" :info="item" v-if="!maxNum || index < maxNum" :type="type"></discuss-item>
 </div>
 </template>
 
@@ -15,7 +15,11 @@ export default {
     },
     props: {
         list: Array,
-        maxNum: Number
+        maxNum: Number,
+        type: {
+            type: [Number, String],
+            default: 5
+        }
     }
     // data() {
     //     return {
@@ -37,6 +41,6 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 @import './main.less';
 </style>

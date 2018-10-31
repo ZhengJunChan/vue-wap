@@ -1,0 +1,39 @@
+@import './../../../less/config.less';
+@contentWidth: 190/100rem;
+
+.song_sheet_detail_item_component {
+  display: flex;
+}
+
+.img_box{
+  width: 136/100rem;
+  height: 120/100rem;
+  padding-right: 16/100rem;
+  margin-right: @margin-20;
+  background:url(./../../../imgs/2_5_0/img_index_song_sheet.png) right center no-repeat;
+  background-size: 16/100rem auto;
+
+  &>div{
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    border-radius: 4/100rem;
+    background-position: center;
+  }
+}
+
+.infos{
+  flex: 1;
+  overflow: hidden;
+  border-bottom: 1px solid #ebebeb;
+  padding: @padding-10 @padding-30 0 0;
+  .title{
+    color: @title-color;
+    font-size: @small-font;
+  }
+  .count{
+    margin-top: 10/100rem;
+    color: #9da2a6;
+    font-size: @min-font;
+  }
+}

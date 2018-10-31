@@ -2,21 +2,18 @@
 
 <template>
 <div class="music_list_component">
-    <ul class="detail" v-if="type === 'detail'">
-        <li v-for="(item, index) in list" :key="item.id">
-            <music-detail-item :info="item" :index="index + 1 + fromNum"
-            ></music-detail-item>
-        </li>
-    </ul>
+    <div class="detail" v-if="type === 'detail'">
+        <music-detail-item class="item" v-for="(item, index) in list" :key="item.id" :info="item"
+        :index="index + 1 + fromNum" @on-clicked="onClicked"
+        v-if="!maxNum || (maxNum && index < maxNum)" />
+    </div>
 
     <div class="list clear_float" v-if="type === 'list'">
         <music-item class="item fl" v-for="(item, index) in list" :key="item.id" v-if="!maxNum || (maxNum && index < maxNum)" :info="item"></music-item>
     </div>
 
-	<div class="x_scroller" v-if="type === 'x-scroller'">
-        <div class="scroller_label clear_float" :style="{width: scrollerWidth}">
-        	<music-item class="item fl" :info="item" v-for="(item, index) in list" :key="item.id" v-if="!maxNum || (maxNum && index < maxNum)"></music-item>
-        </div>
+	<div class="grey" v-if="type === 'grey'">
+        <music-grey-item class="item" :info="item" v-for="(item, index) in list" :key="item.id" v-if="!maxNum || (maxNum && index < maxNum)"></music-grey-item>
     </div>
 </div>
 </template>
@@ -25,6 +22,7 @@
 
 import { Scroller, Flexbox, FlexboxItem } from 'vux';
 import MusicItem from './../music-item';
+import MusicGreyItem from './../music-grey-item';
 import MusicDetailItem from './../music-detail-item';
 
 export default {
@@ -33,6 +31,7 @@ export default {
         Flexbox,
         FlexboxItem,
         MusicItem,
+        MusicGreyItem,
         MusicDetailItem
     },
     props: {
@@ -44,34 +43,9 @@ export default {
             default: 0
         }
     },
-    data() {
-        return {
-            scrollerWidth: ''
-        };
-    },
-    watch: {
-        list() {
-            if (this.type === 'x-scroller') {
-                this.setScrollerWidth();
-            }
-        }
-    },
-    mounted() {
-        if (this.type === 'x-scroller') {
-            this.setScrollerWidth();
-        }
-    },
     methods: {
-        setScrollerWidth() {
-            let width = this.list.length;
-
-            if (this.maxNum && this.maxNum < width) {
-                width = this.maxNum;
-            }
-
-            width = width * 240 + 10;
-
-            this.scrollerWidth = width / 100 + 'rem';
+        onClicked() {
+            this.$emit('on-clicked');
         }
     }
 };

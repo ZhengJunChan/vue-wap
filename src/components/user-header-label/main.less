@@ -1,0 +1,33 @@
+@import './../../less/config.less';
+
+.user_header_label_component {
+    display: flex;
+    align-items: center;
+
+    .header {
+      margin-right: 20/100rem;
+    }
+    .name {
+      flex: 1;
+      .text {
+        display: flex;
+      }
+
+      .handle_name {
+        color: @grey-color;
+        margin-left: @margin-20;
+      }
+
+      .time {
+        color: @grey-color;
+        font-size: @min-font;
+        padding-left: 34/100rem;
+        background: url(./../../imgs/2_5_0/icon_chitang_time@2x.png) left center no-repeat;
+        background-size: 24/100rem auto;
+      }
+    }
+
+    .fallow_btn {
+      margin: 0 5/100rem 0 @margin-20;
+    }
+  }

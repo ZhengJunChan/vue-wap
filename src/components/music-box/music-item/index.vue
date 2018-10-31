@@ -2,7 +2,7 @@
 
 <template>
   <div class="music_item_component">
-    <div class="cover_img" :style="{backgroundImage: `url(${icons.coverImgTop}),url(${info.imgpic_link}/230/230)`}" @click="goMusicDetail(info.id)">
+    <div class="cover_img" :style="{backgroundImage: `url(${icons.coverImgTop}),url(${$fixImg(info.imgpic_info.link + '/230/230')})`}" @click="goMusicDetail(info.id)">
       <div></div>
       <span class="count" v-text="info.counts"></span>
       <img class="play_btn" @click.stop="play(info)" :src="playing ? icons.pause : icons.play">
@@ -23,12 +23,7 @@ import { mapState } from 'vuex';
 import icons from './../icon.js';
 import { RouterUtil } from '@/utils';
 
-import HeaderImg from './../../header-img';
-
 export default {
-    components: {
-        HeaderImg
-    },
     props: {
         info: Object
     },

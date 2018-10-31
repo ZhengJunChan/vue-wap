@@ -3,7 +3,7 @@
  * Created by 郑君婵 on 2017-05-24
  */
 
-export default {
+let BrowserUtil = {
     /**
      * [getQuerys 获取URL参数]
      * @Author   郑君婵
@@ -25,6 +25,14 @@ export default {
         }
 
         return querys;
+    },
+    storage: {
+        setItem(key, value) {
+            return window.localStorage.setItem(key, value);
+        },
+        getItem(key) {
+            return window.localStorage.getItem(key);
+        }
     },
     /**
      * [setQuery 设置url参数]
@@ -75,9 +83,8 @@ export default {
      */
     isFormApp() {
         let isFromApp = false;
-        let logAt = Number(window.localStorage.getItem('logAt'));
 
-        if (logAt === 2 || logAt === 3) {
+        if (BrowserUtil.isFromIosApp() || BrowserUtil.isFromAndroidApp()) {
             isFromApp = true;
         }
 
@@ -91,9 +98,9 @@ export default {
      */
     isFromIosApp() {
         let isFromIosApp = false;
-        let logAt = window.localStorage.getItem('logAt');
+        let logAt = window.localStorage.getItem('logat') || window.localStorage.getItem('logAt');
 
-        if (logAt === '2') {
+        if (Number(logAt) === 2) {
             isFromIosApp = true;
         }
 
@@ -107,9 +114,9 @@ export default {
      */
     isFromAndroidApp() {
         let isFromAndroidApp = false;
-        let logAt = window.localStorage.getItem('logAt');
+        let logAt = window.localStorage.getItem('logat') || window.localStorage.getItem('logAt');
 
-        if (logAt === '3') {
+        if (Number(logAt) === 3) {
             isFromAndroidApp = true;
         }
 
@@ -144,3 +151,5 @@ export default {
         }
     }
 };
+
+export default BrowserUtil;

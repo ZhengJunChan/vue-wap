@@ -1,5 +1,7 @@
 <template>
-  <div class="more_btn_component" v-text="text" @click="getDownloadPage()"></div>
+  <div class="more_btn_component">
+  	<span @click="getDownloadPage()" v-text="text"></span>
+  </div>
 </template>
 
 <script type="text/javascript">

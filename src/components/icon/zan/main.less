@@ -1,0 +1,43 @@
+@import './../../../less/config.less';
+
+/**
+ * [zan_component]
+ * @Author   郑君婵
+ * @DateTime 2018-05-16
+ */
+
+.zan_component {
+  color: #999;
+  cursor: pointer;
+  font-size: 12px;
+  display: inline-block;
+
+  .animation_img {
+    padding-left: 44/100rem;
+    background-image: url(./../imgs/icon_chitang_zan_gray.png);
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: 30/100rem auto;
+    overflow: hidden;
+  }
+
+  &.selected {
+    color: @pink-color !important;
+    .animation_img {
+      background-image: url(./../imgs/icon_bottomg_zan_pink.png); //   animation-timing-function: steps(20);
+      //   animation-name: zan_action;
+      //   animation-duration: .8s;
+      //   animation-iteration-count: 1;
+      //   animation-fill-mode: forwards;
+    }
+  }
+}
+
+// @keyframes zan_action {
+//   0% {
+//     background-position: left
+//   }
+//   100% {
+//     background-position: right
+//   }
+// }

@@ -1,0 +1,90 @@
+@import './../../common.less';
+
+.list_page {
+  background-color: #e7dfff;
+}
+
+.list {
+  padding: 30/100rem 0;
+}
+
+.nav_label {
+  padding-top: 30/100rem;
+
+  .btn {
+    color: #999;
+    width: 110/100rem;
+    height: 54/100rem;
+    background-color: #eeeeee;
+    border-radius: 27/100rem;
+    border: solid 1px #ffffff;
+    margin-left: 8/100rem;
+    border-radius: 27/100rem;
+    text-align: center;
+    font-size: 26/100rem;
+    line-height: 52/100rem;
+  }
+
+  .btn.selected,
+  .purple_btn {
+    color: #fff;
+    background-color: #bfb1ea;
+    border: solid 1px #735fb0;
+
+    &.max {
+      width: 300/100rem;
+      position: relative;
+    }
+
+    .go {
+      position: absolute;
+      text-align: center;
+      right: 5/100rem;
+      top: 50%;
+      font-size: 24/100rem;
+      transform: translateY(-50%);
+      width: 48/100rem;
+      height: 48/100rem;
+      border-radius: 50%;
+      line-height: 48/100rem;
+      background-color: #ae9ee3;
+    }
+  }
+}
+
+.search_label {
+  padding: 0 !important;
+  display: flex;
+  height: 60/100rem;
+  font-size: 26/100rem;
+  margin-top: 30/100rem;
+  overflow: hidden;
+  border: solid 1px @purpleColor;
+  border-radius: 30/100rem;
+
+  input {
+    flex: 1;
+    padding: 0 30/100rem;
+    outline: none;
+  }
+
+  button {
+    width: 90/100rem;
+    background: url(./../../../../../imgs/2_6_0/icon_sousuo.png) center no-repeat #bfb1ea;
+    background-size: 32/100rem;
+  }
+}
+
+.empty_tip{
+  color: #9da6a4;
+  text-align: center;
+  font-size: 26/100rem;
+  padding: 160/100rem 0 230/100rem;
+  .empty_img{
+    width: 320/100rem;
+    margin-bottom: 30/100rem;
+  }
+  .search_key{
+    color: #735fb0;
+  }
+}

@@ -33,9 +33,9 @@ export default {
 
             wx.error(res => {
                 if (res.errMsg === 'config:invalid signature') {
-                    console.log('初始化失败，您不能使用身份证拍照功能');
+                    // console.log('初始化失败，您不能使用身份证拍照功能');
                 } else {
-                    console.log('初始化失败：' + res.errMsg);
+                    // console.log('初始化失败：' + res.errMsg);
                 }
 
                 weixinConfigErrorObject = res;
@@ -50,5 +50,8 @@ export default {
                 commit('shareToWx');
             });
         });
+    },
+    wxLogin({ state }, option) {
+        WxApi.thirdLogin(option);
     }
 };

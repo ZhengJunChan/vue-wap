@@ -2,31 +2,29 @@
 
 <template>
   <div class="musician_item_component">
-  	<header-img :size="170" :header-img="info.head_link" :header-id="info.id" :vip="info.member_type==2" class="has-border"></header-img>
+  	<header-img :size="170" :header-img="info.head_info && info.head_info.link" :header-id="info.id" :vip="info.is_music == 3"></header-img>
 
   	<p class="musician_name text_nowrap_ellipsis">
       <router-link :to="`/singer/${info.id}`" v-text="info.nickname"></router-link>
   	</p>
 
-    <div class="song_label">
-      <div class="play_btn" @click="play(info.music)" :style="{backgroundImage: `url(${playing ? icons.puase : icons.play})`}">
-      </div>
-      <p class="text_nowrap_ellipsis" :class="playing && 'red_text'">
-        <router-link :to="`/music/${info.music.id}`" v-text="info.music.title"></router-link>
-      </p>
-    </div>
+    <p class="fans">{{info.fans_num}}粉丝</p>
+
+    <icon-fallow-btn />
   </div>
 </template>
 
 <script type="text/javascript">
 import { mapState } from 'vuex';
 
-import HeaderImg from './../../header-img';
 import icons from './../icon.js';
+import HeaderImg from './../../header-img';
+import IconFallowBtn from './../../icon/fallow-btn';
 
 export default {
     components: {
-        HeaderImg
+        HeaderImg,
+        IconFallowBtn
     },
     props: {
         info: Object

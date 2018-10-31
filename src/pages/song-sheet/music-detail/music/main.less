@@ -1,0 +1,182 @@
+@import './../../../../less/config.less';
+
+.music_detail_page {
+  .body {
+    background-color: @grey-bg-color;
+
+    &>div {
+      background: @white-color;
+      padding: @padding-30 @padding-20;
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .gifts {
+    .receive_gift_list {
+      margin-top: @margin-40;
+    }
+    .give_gift {
+      text-align: center;
+      margin-top: @margin-30;
+      button {
+        width: 220/100rem;
+        height: 68/100rem;
+        color: @white-color;
+        background-color: #ff4c55;
+        box-shadow: 0 5/100rem 15/100rem 0 rgba(198, 5, 14, 0.25);
+        border-radius: 34/100rem;
+      }
+    }
+  }
+
+  .intro {
+    .content {
+      line-height: 0.44rem;
+    }
+
+    .five_lines {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+    }
+
+    .more_text {
+      color: @pink-color;
+      &>p {
+        display: inline-block;
+      }
+    }
+  }
+
+  .topic {
+    margin-top: -40/100rem;
+    padding-bottom: @padding-30;
+    .more_btn {
+      margin-top: @padding-30;
+    }
+  }
+}
+
+.music_body {
+  text-align: center;
+  .title {
+    font-weight: normal;
+    color: @title-color;
+    font-size: @bigger-font;
+  }
+  .nikname {
+    color: @grey-color;
+  }
+  .play_box {
+    margin: 0 auto;
+    padding: 90/100rem 0;
+
+    .play_btn {
+      margin: 0 auto;
+      position: relative;
+      border-radius: 50%;
+      text-align: center;
+      width: 400/100rem;
+      height: 400/100rem;
+      background-position: center;
+      background-size: cover;
+      &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        border-radius: 50%;
+        background: url(./../../../../imgs/2_5_0/icon_index_tuijian_play.png) center no-repeat @before-bg-color;
+        background-size: 120/120rem auto;
+      }
+    }
+    .playing {
+      &:after {
+        background-image: url(./../../../../imgs/2_5_0/icon_index_tuijian_stop.png);
+      }
+    }
+  }
+
+  .rly {
+    line-height: 54/100rem;
+    max-height: 160/100rem;
+    overflow: auto;
+    .active {
+      color: @pink-color;
+    }
+  }
+
+  .up_icon {
+    margin-top: 55/100rem;
+    &>span {
+      width: 50/100rem;
+      height: 50/100rem;
+      display: inline-block;
+      background: url(./../../../../imgs/2_5_0/icon_play_upglide.png) center no-repeat;
+      background-size: 32/100rem;
+    }
+  }
+}
+
+.box {
+  .title {
+    text-align: center;
+  }
+  padding: 0 @padding-30;
+}
+
+.partner {
+  .title {
+    &>div {
+      margin-bottom: 0;
+    }
+  }
+  .item {
+    display: flex;
+    line-height: 78/100rem;
+    .type{
+      color: #616665;
+    }
+    .people {
+      flex: 1;
+      &>div {
+        position: relative;
+        display: inline-block;
+        padding: 0 @padding-30;
+        &:after {
+          content: "";
+          display: block;
+          width: 1px;
+          height: 24/100rem;
+          position: absolute;
+          top: 50%;
+          right: 0;
+          transform: translateY(-50%);
+          background-color: #e6e6e6;
+        }
+        &:last-child:after {
+          width: 0;
+        }
+      }
+      .header_img {
+        vertical-align: middle;
+      }
+      .user {
+        color: @pink-color;
+      }
+    }
+  }
+}
+
+.intro{
+  .content{
+    color: #616665;
+  }
+}

@@ -37,7 +37,7 @@
             compType() {
                 let ids = children.prizeType;
                 let type = ids[this.info.type] ? ids[this.info.type] : 'error';
-                children.setTitle(BrowserUtil, children.prizePageTitle[type]);
+                this.$store.commit('setTitle', children.prizePageTitle[type]);
                 return type;
             },
             ticket() {

@@ -1,9 +1,10 @@
 @import './../../../less/config.less';
 
-.discuss_list_component{
-	.item{
-		&+.item{
-			margin-top: @margin-20
+.discuss_list_component.no_bottom_border{
+	.item:last-child{
+		.body{
+			border-bottom: 0;
+			margin-bottom: @margin-10;
 		}
 	}
 }

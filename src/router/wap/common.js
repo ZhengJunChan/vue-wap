@@ -4,8 +4,8 @@
  */
 
 const common = [{
-    name: 'download',
     path: '/download',
+    // name: 'download',
     meta: {
         title: '源音塘 - App下载页'
     },

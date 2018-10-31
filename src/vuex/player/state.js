@@ -15,7 +15,8 @@ export default {
             uid: 0,
             head: '',
             nickname: ''
-        }
+        },
+        currentTime: 0 // 歌曲正在播放的时间
     },
     // 正在播放的列表
     playList: [],

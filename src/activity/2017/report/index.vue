@@ -67,10 +67,8 @@
 //         * 功能介绍：页面进入拦截
 //         * 参数：
 //         */
-//          let loginUid = store.infos && store.infos.uid && Number(store.infos.uid) ? Number(store.infos.uid) : 0;
-//          alert(store.infos.uid);
+//          let loginUid = store.infos && store.infos.id && Number(store.infos.id) ? Number(store.infos.id) : 0;
 //          let getUid = t.query && t.query.uid && Number(t.query.uid) ? Number(t.query.uid) : 0;
-//          alert(getUid);
 //          if (getUid === 0 && loginUid) {
 //              n({name: t.name, query: Object.assign({}, t.query, {uid: loginUid})});
 //          } else if (getUid === 0 && loginUid === 0) {
@@ -83,7 +81,7 @@
       computed: {
           loginUid() {
               let u = this.$store.state.user;
-              return u && u.infos.uid && Number(u.infos.uid) ? Number(u.infos.uid) : 0; // 登录用户id
+              return u && u.infos.id && Number(u.infos.id) ? Number(u.infos.id) : 0; // 登录用户id
           },
           getUid() {
               return this.$route.query && this.$route.query.uid && Number(this.$route.query.uid) ? Number(this.$route.query.uid) : 0; // 查询数据的用户i;
@@ -324,7 +322,6 @@
                   this.isNotPlayed = false;
                   this.musicPlayer.volume = 1;
                   this.isPlaying = !this.musicPlayer.paused;
-                  console.log();
               };
               !a && document.body.appendChild(this.musicPlayer);
           }

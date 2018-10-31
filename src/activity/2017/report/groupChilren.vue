@@ -52,8 +52,8 @@
         return children[`page${this.componentId + 1}`];
       },
       isSelf() {
-        let loginUid = store.infos && store.infos.uid && Number(store.infos.uid) ? Number(store.infos.uid) : 0;
-        let getUid = this.$route.query && this.$route.query.uid && Number(store.infos.uid) ? Number(this.$route.query) : 0;
+        let loginUid = store.infos && store.infos.id && Number(store.infos.id) ? Number(store.infos.id) : 0;
+        let getUid = this.$route.query && this.$route.query.uid && Number(store.infos.id) ? Number(this.$route.query) : 0;
         return loginUid > 0 && (loginUid === getUid);
       },
       showUp() {

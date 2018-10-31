@@ -1,0 +1,185 @@
+.detail {
+  background-color: #efeaff;
+
+  .banner {
+    width: 100%;
+  }
+
+  .infos {
+    padding: 40/100rem;
+  }
+
+  .header_label {
+    height: 160/100rem;
+    position: relative;
+    padding: 0 90/100rem 0 180/100rem;
+
+    .header {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 160/100rem;
+      height: 160/100rem;
+      border-radius: 10/100rem;
+      border: solid 1px #b5a6e5;
+      background-size: cover;
+      background-size: center;
+    }
+
+    .name {
+      padding-top: 20/100rem;
+      font-family: PingFangSC-Medium;
+      font-size: 34/100rem;
+      color: #735fb0;
+    }
+
+    .btn_label {
+      position: absolute;
+      left: 180/100rem;
+      bottom: 0;
+
+      .btn {
+        display: inline-block;
+        text-align: center;
+        width: 160/100rem;
+        height: 60/100rem;
+        line-height: 58/100rem;
+        border-radius: 30/100rem;
+
+        .text_icon {
+          background-size: auto 28/100rem;
+          background-position: left center;
+          padding-left: 40/100rem;
+          background-repeat: no-repeat;
+        }
+
+        &.zan {
+          color: #fc811d;
+          background-color: #fffa96;
+          border: solid 1px #ffc45d;
+
+          .text_icon {
+            background-image: url(./../../imgs/icon-liuyanban-like.png);
+          }
+        }
+
+        &.share {
+          color: #6bb324;
+          margin-left: 20/100rem;
+          background-color: #e6ffcc;
+          border: solid 1px #9ecc70;
+
+          .text_icon {
+            background-image: url(./../../imgs/icon-liuyanban-share.png);
+          }
+        }
+      }
+    }
+
+    .no {
+      position: absolute;
+      top: 0;
+      right: 0;
+      color: #fff;
+      width: 87/100rem;
+      height: 52/100rem;
+      text-align: center;
+      font-size: 26/100rem;
+      line-height: 52/100rem;
+      border-radius: 10/100rem;
+      background-color: #b5a6e5;
+      border-radius: 0 10/100rem 0 10/100rem;
+    }
+  }
+
+  .content {
+    position: relative;
+    text-indent: 2em;
+    margin-top: 30/100rem;
+    font-size: 28/100rem;
+    line-height: 52/100rem;
+    color: #735fb0;
+    background: url(./../../imgs/icon_liuyanban-symbol.png) left 10/100rem no-repeat;
+    background-size: 22/100rem auto;
+
+    .text {
+      text-indent: 2em;
+    }
+
+    .right_bg {
+      position: absolute;
+      right: 0;
+      bottom: 16/100rem;
+      width: 22/100rem;
+    }
+  }
+
+  .zan_label {
+    color: #fffa96;
+    text-align: center;
+    height: 60/100rem;
+    margin-top: 30/100rem;
+    line-height: 60/100rem;
+    font-size: 28/100rem;
+    background-color: #ffc45d;
+    border-radius: 30/100rem;
+  }
+}
+
+.message_board {
+  margin-top: 20/100rem;
+  background-color: #efeaff;
+
+  .title {
+    font-size: 30/100rem;
+    padding: 50/100rem 40/100rem 0;
+    position: relative;
+  }
+
+  .msg_btn {
+    position: absolute;
+    top: 40/100rem;
+    right: 40/100rem;
+    color: #fd3b65;
+    width: 160/100rem;
+    height: 60/100rem;
+    text-align: center;
+    line-height: 60/100rem;
+    border-radius: 30/100rem;
+    background-color: #fde2eb;
+    border: solid 1px #ff8ca4;
+
+    .text_content {
+      font-size: 26/100rem;
+      padding-left: 32/100rem;
+      background: url(./../../imgs/icon_liuyanban-message.png) left center no-repeat;
+      background-size: 23/100rem;
+    }
+  }
+
+  .tip {
+    font-size: 26/100rem;
+    color: #999;
+    margin-top: 20/100rem;
+
+    .purple_text {
+      color: #fd3b65;
+    }
+  }
+}
+
+.share_tip {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  text-align: right;
+  padding-right: 40/100rem;
+  background-color: rgba(0, 0, 0, 0.6);
+
+  &>img {
+    width: 300/100rem;
+  }
+}

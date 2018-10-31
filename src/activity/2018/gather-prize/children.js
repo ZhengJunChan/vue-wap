@@ -1,6 +1,7 @@
 /**
  * Created by Administrator on 2018/1/26.
  */
+
 var getPonents = function (title, keys) {
     let o = {};
     title = title || '';
@@ -40,23 +41,6 @@ function WatchWindowH() {
         }
     };
 };
-function setTitle(b, title) {
-    let appParams = {
-        funcName: 'setTitle',
-        params: {
-            title: title,
-            headerType: 'share'
-        }
-    };
-
-    if (b.isFromIosApp()) {
-        window.callAppFunction(appParams);
-    } else if (b.isFromAndroidApp()) {
-        window.android.funtionAndroid(JSON.stringify(appParams));
-    } else if (title) {
-        document.title = title;
-    }
-}
 const prizeType = {
     'init': 'init',
     '3': 'coin',
@@ -88,7 +72,6 @@ let setWindowClose = function (othis) {
 };
 export default {
     getPonents,
-    setTitle,
     prizeType,
     prizePageTitle,
     WatchWindowH,

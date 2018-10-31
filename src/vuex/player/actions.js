@@ -13,6 +13,10 @@ export default {
     playSong({ dispatch, commit, state }, {music, addPlayCount}) {
         let sheet = [];
 
+        if (!music.id && music.music_id) {
+            music.id = music.music_id;
+        }
+
         // 如果该歌曲是正在播放的歌曲
         if (state.playing.song.id === music.id) {
             if (state.playing.song.pause) {
@@ -25,7 +29,7 @@ export default {
         }
 
         sheet.push(music);
-        dispatch('updataSongSheet', { sheetId: 0, songList: sheet, addPlayCount });
+        dispatch('updataSongSheet', { sheetId: music.song_id || 0, songList: sheet, addPlayCount });
 
         // 保存歌曲信息
         commit('saveSong', music);

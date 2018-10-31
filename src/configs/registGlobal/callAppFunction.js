@@ -1,4 +1,5 @@
 import { BrowserUtil } from '@/utils';
+import AndroidApp from '@/utils/android-app.js';
 
 export default function (funName, params) {
     let appParams = {
@@ -11,7 +12,7 @@ export default function (funName, params) {
         window.callAppFunction(appParams);
     } else if (BrowserUtil.isFromAndroidApp()) {
         // 页面位于android
-        window.android.funtionAndroid(JSON.stringify(appParams));
+        AndroidApp.runAdroidApi(appParams);
     } else {
         console.error('无法识别app类型');
     }

@@ -1,0 +1,88 @@
+@import './../../../less/config.less';
+
+.music_item_component {
+  height: 150/100rem;
+  display: flex;
+  background-color: #fafafa;
+  border-radius: @box-radius;
+  border: solid 1px #f2f4f5;
+
+  .cover_img {
+    position: relative;
+    width: 150/100rem;
+    height: 150/100rem;
+    color: @white-color;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 8/100rem 0 0 8/100rem;
+
+    .type {
+      position: absolute;
+      top: 0;
+      right: 0;
+      font-size: @min-font;
+      padding: 0 5/100rem;
+      background-color: #ff6699;
+      border-radius: 0 0 0 @box-radius;
+    }
+  }
+
+  .info_box {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    padding: @padding-10 @padding-20;
+  }
+
+  .music_name {
+    font-size: @smaller-font;
+  }
+
+  .singer_name {
+    color: #666;
+    color: @singer-name;
+    font-size: @smaller-font;
+  }
+
+  .count {
+    position: absolute;
+    left: @padding-20;
+    bottom: 0;
+    padding-left: 30/100rem;
+    background: url(./../../../imgs/2_5_0/icon_index_erji_gray.png) left center no-repeat;
+    background-size: 24/100rem auto;
+  }
+
+  .play_btn {
+    position: absolute;
+    right: @padding-10;
+    bottom: @padding-10;
+    width: 40/100rem;
+    height: 40/100rem;
+  }
+
+  .playing {
+
+    .music_name,
+    .singer_name {
+      color: @pink-color;
+    }
+  }
+
+  .mv_tag {
+    position: relative;
+    padding-right: 70/100rem;
+    .mv_icon {
+      display: block;
+    }
+  }
+
+  .mv_icon {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}

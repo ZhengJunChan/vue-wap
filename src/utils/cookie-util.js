@@ -12,12 +12,12 @@ export default {
 
     // 获取全部cookie
     getAll: function () {
-        var cookies = null;
+        var cookies = {};
         var cookie = [];
-        var cookiesArr = document.cookie.split(';');
+        var cookiesArr = document.cookie.split('; ');
 
         for (let index = 0; index < cookiesArr.length; index++) {
-            cookie = cookiesArr.split('=');
+            cookie = cookiesArr[index].split('=');
             cookies[window.decodeURIComponent(cookie[0])] = window.decodeURIComponent(cookie[1]);
         }
 
@@ -34,6 +34,7 @@ export default {
         var cookieText = window.encodeURIComponent(name) + '=' + window.encodeURIComponent(value);
 
         if (expires instanceof Date) {
+            // cookieText += '; expires=' + expires;
             cookieText += '; expires=' + expires.toGMTString();
         }
 

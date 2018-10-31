@@ -95,10 +95,8 @@ export default {
                 this.likeMusics = res.data;
 
                 if (this.likeMusics) {
-                    this.$parent.title = this.likeMusics.nickname + '喜欢的歌曲';
-
                     this.$share({
-                        imgUrl: res.data.head_link,
+                        imgUrl: res.data.head_info.link,
                         desc: res.data.signature,
                         title: this.likeMusics.nickname + '喜欢的歌曲'
                     });

@@ -1,0 +1,161 @@
+.vote_page {
+  color: #9da6a4;
+  font-size: 28/100rem;
+  font-family: PingFangSC;
+  background: url(./../../imgs/bg_spring_vote1.png) center/cover no-repeat;
+  &.app_page{
+    .content {
+      margin-top: 15%;
+    }
+  }
+
+  .content {
+    text-align: center;
+    width: 750/100rem;
+    margin: 10/100rem auto 0;
+    padding: 90/100rem 80/100rem 70/100rem;
+    background: url(./../../imgs/bg_spring_vote2.png) left top/100% 100% no-repeat;
+  }
+
+  .nikname {
+    color: #1a1717;
+    margin-bottom: 20/100rem;
+  }
+
+  .title {
+    color: #23c6ab;
+    margin: 6/100rem 0;
+    font-weight: normal;
+    font-size: 40/100rem;
+    font-family: PingFangSC-Medium;
+  }
+
+  .music_info {
+    margin-top: 40/100rem;
+    &>img {
+      width: 100%;
+    }
+
+    &>div {
+      margin: -7px 0;
+      background-image: url(./../../imgs/bg_jianjie_xian.png);
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+    }
+  }
+
+  .music_item {
+    margin: 0 auto;
+    width: 260/100rem;
+    height: 200/100rem;
+    position: relative;
+    border-radius: 10/100rem;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      position: absolute;
+      z-index: 1;
+      border-radius: 10/100rem;
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    .number {
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.2);
+      font-family: ArialMT;
+      font-size: 22/100rem;
+      padding: 4/100rem 0;
+      z-index: 5;
+    }
+
+    .play_btn {
+      position: absolute;
+      top: 55/100rem;
+      left: 50%;
+      margin-left: -29/100rem;
+      width: 58/100rem;
+      height: 60/100rem;
+      z-index: 5;
+    }
+  }
+
+  .music_name {
+    color: #1a1a1a;
+    margin-top: 14/100rem;
+  }
+
+  .vote_btn {
+    color: #fff;
+    font-size: 30/100rem;
+    width: 350/100rem;
+    height: 72/100rem;
+    background-color: #ff4c88;
+    border-radius: 10/100rem;
+    margin-top: 40/100rem;
+  }
+
+  .count {
+    margin-top: 30/100rem;
+  }
+
+  .tip {
+    color: #ff4c88;
+    margin-top: 30/100rem;
+  }
+
+  .mobile_box {
+    padding: 0 20/100rem;
+  }
+
+  .code_box {
+    text-align: center;
+    .tip {
+      color: #9da6a4;
+      font-size: 24/100rem;
+    }
+
+    .code {
+      height: 70/100rem;
+      margin-top: 30/100rem;
+      &>* {
+        text-align: center;
+        height: 100%;
+        border-radius: 10/100rem;
+      }
+      &>input {
+        color: #1a1717;
+        width: 68%;
+        background-color: #f0f0f0;
+      }
+
+      &>button {
+        color: #ff4c88;
+        width: 30%;
+        border: solid 1px #ff4c88;
+        background-color: #fff;
+      }
+
+      .resend{
+        color: #fff;
+        font-size: 26/100rem;
+        background-color: #ff4c88;
+      }
+    }
+  }
+
+  .bottom {
+    font-size: 24/100rem;
+    color: #616665;
+    margin-top: 24/100rem;
+  }
+}

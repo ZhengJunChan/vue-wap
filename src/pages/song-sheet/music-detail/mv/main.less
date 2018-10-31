@@ -1,0 +1,203 @@
+@import './../../../../less/config.less';
+
+.mv_detail_page {
+
+  .discuss_box {
+    padding-top: 1px;
+    background-color: @grey-bg-color;
+
+    .box {
+      margin-top: @margin-20;
+      background-color: @content-bg-color;
+    }
+
+  }
+
+  .cell_title {
+    padding-left: @padding-30;
+  }
+
+  .more_btn {
+    text-align: center;
+    color: #9da2a6;
+    margin-top: 0;
+    padding-bottom: @padding-50;
+    background-color: @content-bg-color;
+
+    &>span {
+      padding-right: 32/100rem;
+      background: url(./../../../../imgs/2_5_0/icon_indexjianjie_more2.png) right center no-repeat;
+      background-size: 14/100rem auto;
+    }
+  }
+}
+
+.mv_box {
+  .mv_panel {
+    height: 420/100rem;
+  }
+
+  .inner {
+    font-size: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    position: relative;
+    background: #000;
+
+    video {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    .mv_panle {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 3;
+    }
+
+    .play_box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      .play_btn {
+        width: 70/100rem;
+      }
+    }
+
+    .action_label {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      padding: 0 40/100rem;
+      font-size: @smaller-font;
+      height: 70/100rem;
+
+      .current_time {}
+
+      .process_label {
+        flex: 1;
+        padding: 0 @padding-20;
+
+        .base_line {
+          height: 4/100rem;
+          position: relative;
+          background-color: rgba(255, 255, 255, 0.5);
+
+          .play_bar {
+            height: 100%;
+            top: 0;
+            left: 0;
+            position: absolute;
+            background-color: @pink-color;
+          }
+
+          .process_btn {
+            width: 30/100rem;
+            height: 30/100rem;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            margin-left: -15/100rem;
+            transform: translateY(-50%);
+            border: 10/100rem solid #fff;
+            background-color: @pink-color;
+          }
+        }
+      }
+
+      .full_icon {
+        width: 32/100rem;
+        height: 32/100rem;
+        margin-left: @margin-20;
+        vertical-align: text-top;
+      }
+    }
+
+    .refresh_tip {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 9;
+      background-color: rgba(0, 0, 0, 0.7);
+
+      .refresh_icon {
+        height: 38/100rem;
+        vertical-align: middle;
+        margin-right: @margin-10;
+      }
+
+      .tip {
+        color: #fff;
+        font-size: @small-font;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
+  .info {
+    color: @grey-color;
+    font-size: @smallst-font;
+    padding: 24/100rem @padding-30 @padding-40;
+
+    .title {
+      font-size: 34/100rem;
+      line-height: 48/100rem;
+      color: @title-color;
+      font-weight: normal;
+    }
+
+    .desc {
+      margin-top: @margin-20;
+
+      span+span {
+        padding-left: 50/100rem;
+      }
+    }
+
+    .musician {
+      height: 68/100rem;
+      position: relative;
+      line-height: 68/100rem;
+      margin-top: @margin-30;
+
+      .header_img {
+        vertical-align: middle;
+      }
+
+      .nickname {
+        padding: 0 40/100rem 0 13/100rem;
+        background: url(./../../../../imgs/icons/icon_indexjianjie_more.png) right center no-repeat;
+        background-size: 10/100rem 18/100rem;
+      }
+
+      .gift {
+        position: absolute;
+        top: 50%;
+        color: #fff;
+        transform: translateY(-50%);
+        right: 0;
+        width: 180/100rem;
+        height: 60/100rem;
+        line-height: 60/100rem;
+        padding-left: 70/100rem;
+        border-radius: 30/100rem;
+        background: url(./../../../../imgs/2_6_0/icon_gift.png) 28/100rem center no-repeat @pink-color;
+        background-size: 32/100rem 33/100rem;
+      }
+    }
+  }
+}

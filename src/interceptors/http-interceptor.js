@@ -4,7 +4,8 @@
  */
 
 import store from '@/vuex';
-import ApiUtil from '@/utils/api-util.js';
+import AndroidApp from '@/utils/android-app.js';
+// import ApiUtil from '@/utils/api-util.js';
 import { CheckUtil, BrowserUtil } from '@/utils';
 
 /**
@@ -38,56 +39,27 @@ function rebiuldPaginationResponse(response) {
 }
 
 /**
+ * [logingSetting 重构分页数据]
+ * @Author   郑君婵
+ * @DateTime 2017-06-01
+ * @param    {object}   response [response]
+ */
+function logingSetting(response) {
+    let uid = response.headers && response.headers['x_end_user'] || 0;
+
+    if (Number(uid) && !store.state.user.isLogined) {
+        store.dispatch('requireUserInfos');
+    }
+}
+
+/**
  * [rebiuldResponse 重构数据]
  * @Author   郑君婵
  * @DateTime 2017-06-01
  */
 function rebiuldResponse(response) {
+    logingSetting(response);
     rebiuldPaginationResponse(response);
-}
-
-/**
- * [requireToken token无效时，重新请求]
- * @Author   郑君婵
- * @DateTime 2017-06-05
- */
-function requireToken() {
-    let params = {
-        log_at: '',
-        devicekey: window.localStorage.getItem('fingerprint')
-    };
-    if (BrowserUtil.isFormApp()) {
-        params.log_at = Number(window.localStorage.log_at);
-    } else if (BrowserUtil.isMobile()) {
-        params.log_at = 4;
-    } else {
-        params.log_at = 1;
-    }
-
-    // 注意事项：用户点击退出登录、被挤下线 需要重新获取token的时候 携带一个out=true的参数
-    ApiUtil.get('/v2/api/com/auth', params).then((res) => {
-        if (res.code !== 200) {
-            console.log(res.msg);
-            return;
-        }
-
-        if (!res.data || !res.data.accesstoken) {
-            console.log('返回了无效token');
-            return;
-        }
-
-        let params = {
-            funcName: 'setTokens',
-            params: {
-                token: res.data.accesstoken
-            }
-        };
-
-        require('', params);
-        BrowserUtil.setQuery('token', res.data.accesstoken);
-
-        window.localStorage.setItem('token', res.data.accesstoken);
-    });
 }
 
 /**
@@ -127,7 +99,7 @@ function require(pcRequire, appParams) {
 
     // android app 中打开页面
     if (BrowserUtil.isFromAndroidApp()) {
-        window.android.funtionAndroid(JSON.stringify(appParams));
+        AndroidApp.runAdroidApi(appParams);
     }
 }
 
@@ -135,18 +107,13 @@ export default function (vue) {
     // request 拦截器
     vue.http.interceptors.request.use(
         config => {
-            var token = window.localStorage.getItem('token');
-            var logintoken = window.localStorage.getItem('logintoken');
-            config.headers.version = '2.1.0';
-            // config.headers.fingerKey = window.localStorage.getItem('fingerprint');
+            config.headers.version = store.state.app.version;
 
-            // 判断是否存在token，如果存在的话，则每个http header都加上token
-            if (token) {
-                config.headers.accesstoken = token;
-            }
-            if (logintoken) {
-                config.headers.logintoken = logintoken;
-            }
+            // wap的logat
+            config.headers.logat = 4;
+
+            store.commit('setLoginToken');
+            config.headers.logintoken = store.state.user.infos.logintoken || '';
 
             return config;
         },
@@ -158,7 +125,6 @@ export default function (vue) {
     // response 拦截器
     vue.http.interceptors.response.use(
         response => {
-            store.commit('setLoginStatus', { isLogined: response.headers.x_end_user });
             rebiuldResponse(response);
 
             return response.data;
@@ -173,7 +139,11 @@ export default function (vue) {
                     break;
                 case 402:
                     // token授权失败或者已过期
-                    requireToken();
+                    // requireToken();
+                    break;
+                case 412:
+                    // 用户已登录（比如第三方登录），未绑定手机号，需要绑定手机号或邮箱才能愉快地进行当前操作
+                    store.commit('bindMobile');
                     break;
                 }
             }

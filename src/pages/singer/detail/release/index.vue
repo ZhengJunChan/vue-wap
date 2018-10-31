@@ -1,9 +1,12 @@
 <!-- [release_page]   @Author: 郑君婵   @DateTime: 2017-09-29 -->
 <template>
   <div class="release_page">
-  	<music-list :list="musicsList" type="list" :max-num="page.perPage"></music-list>
+    <div class="list_box" v-if="musicsList.length">
+        <h2 class="title">TA的作品(8)</h2>
+      	<music-list :list="musicsList" type="detail" :max-num="page.perPage"></music-list>
+        <more-btn text="查看全部歌曲" v-if="page.totalCount > page.perPage"></more-btn>
+    </div>
 
-    <more-btn text="查看全部歌曲" v-if="page.totalCount > page.perPage"></more-btn>
 
     <empty-tip class="empty_box" v-if="initSingerMusicList && !musicsList.length">
         <p>TA还没有歌曲呢</p>

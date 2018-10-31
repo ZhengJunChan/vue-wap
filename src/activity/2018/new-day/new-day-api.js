@@ -35,7 +35,7 @@ export default {
      * @return   {[type]}   [description]
      */
     getScreenWinningPrize() {
-        return ApiUtil.get(`/v2/api/lottery/letsgo/${activityId}`);
+        return ApiUtil.get(`/v2/api/member.lottery/letsgo/${activityId}`);
     },
     /**
      * [searchPrizeCount 查询兑奖及抽奖情况]
@@ -53,9 +53,9 @@ export default {
      */
     acceptPrize(id, params) {
         if (params) {
-            return ApiUtil.post(`/v2/api/lottery/postaddr?id=${id}`, params);
+            return ApiUtil.post(`/v2/api/member.lottery/postaddr?id=${id}`, params);
         } else {
-            return ApiUtil.post(`/v2/api/lottery/postaddr?id=${id}`);
+            return ApiUtil.post(`/v2/api/member.lottery/postaddr?id=${id}`);
         }
     }
 };

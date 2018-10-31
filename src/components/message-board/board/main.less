@@ -1,0 +1,68 @@
+@import './../../../less/config.less';
+
+.message_board {
+  .main {
+    padding: 0 30/100rem;
+  }
+  .messages {
+    margin-top: 40/100rem;
+    li {
+      position: relative;
+      font-size: 26/100rem;
+      border-top: 1px solid #e6e6e6;
+      padding: 40/100rem 124/100rem 40/100rem 100/100rem;
+      &:last-child {
+        border-bottom: 1px solid #e6e6e6;
+      }
+    }
+
+    .header {
+      position: absolute;
+      left: 0;
+      top: 40/100rem;
+    }
+    .nikname {
+      color: #6d757a;
+      margin-bottom: 10/100rem;
+    }
+    .text_desc{
+      word-break: break-all;
+    }
+    .zan {
+      position: absolute;
+      top: 44/100rem;
+      right: 0;
+      color: #9da6a4;
+      font-size: 24/100rem;
+    }
+  }
+
+  .pagination_box{
+    text-align: center;
+    padding: 20/100rem 0 36/100rem;
+  }
+
+  .write_message_btn {
+    text-align: center;
+    background-color: #f5f5f5;
+    border: solid 1px #e6e6e6;
+    &.btn1{
+      margin: 0 auto;
+      height: 70/100rem;
+      line-height: 70/100rem;
+      width: 690/100rem;
+      border-radius: 10/100rem;
+    }
+    &.btn2{
+      height: 84/100rem;
+      line-height: 80/100rem;
+    }
+  }
+  .empty_box{
+    text-align: center;
+    padding: 45/100rem 0 60/100rem;
+    .empty_img{
+      width: 270/100rem;
+    }
+  }
+}

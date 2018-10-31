@@ -1,11 +1,19 @@
 <!-- [sheet_page]   @Author: 郑君婵   @DateTime: 2017-09-29 -->
 <template>
   <div class="sheet_page">
-  	<song-sheet-list :like="likeMusics || {}" :list="songSheets" type="list" :max-num="9"></song-sheet-list>
+    <div class="list_box" v-if="likeMusics.list.length">
+        <h2 class="title">收藏的歌单({{likeMusics.page.totalCount}})</h2>
+        <song-sheet-list :list="likeMusics.list" type="detail" :max-num="9" :total-count="likeMusics.page.totalCount"></song-sheet-list>
+        <more-btn class="more_btn" text="查看全部歌单" v-if="likeMusics.page.totalCount > likeMusics.page.perPage"></more-btn>
+    </div>
 
-    <more-btn text="查看全部歌曲" v-if="page.totalCount > page.perPage"></more-btn>
+    <div class="list_box" v-if="songSheets.list.length">
+        <h2 class="title">创建的歌单({{songSheets.page.totalCount}})</h2>
+        <song-sheet-list :list="songSheets.list" type="detail" :max-num="9" :total-count="songSheets.page.totalCount"></song-sheet-list>
+        <more-btn class="more_btn" text="查看全部歌单" v-if="songSheets.page.totalCount > songSheets.page.perPage"></more-btn>
+    </div>
 
-    <empty-tip class="empty_box" v-if="initSingerSheet && !songSheets.length && !likeMusics.id">
+    <empty-tip class="empty_box" v-if="initSingerSheet && !songSheets.list.length && !likeMusics.list.length">
         <p>TA还没有歌单呢</p>
         <p> ╮(๑•́ ₃•̀๑)╭</p>
     </empty-tip>
@@ -26,11 +34,19 @@ export default {
     data() {
         return {
             initSingerSheet: false,
-            likeMusics: {},
-            songSheets: [],
-            page: {
-                perPage: 9,
-                totalCount: 0
+            songSheets: {
+                list: [],
+                page: {
+                    perPage: 9,
+                    totalCount: 0
+                }
+            },
+            likeMusics: {
+                list: [],
+                page: {
+                    perPage: 9,
+                    totalCount: 0
+                }
             }
         };
     },
@@ -43,7 +59,7 @@ export default {
             this.getSingerSheet();
         },
         /**
-         * [getCollectionSongs 获取TA的收藏歌曲]
+         * [getCollectionSongs 获取TA的收藏歌单]
          * @Author   郑君婵
          * @DateTime 2017-07-29
          */
@@ -57,12 +73,13 @@ export default {
                     return;
                 }
 
-                this.likeMusics = res.data;
+                this.likeMusics.list = res.data;
+                this.likeMusics.page = res.page;
             });
         },
         getSingerSheet() {
             let params = {
-                row: this.page.perPage,
+                row: this.songSheets.page.perPage,
                 id: this.$parent.singerId
             };
 
@@ -74,8 +91,8 @@ export default {
                     return;
                 }
 
-                this.songSheets = res.data;      // 轮播列表
-                this.page = res.page;
+                this.songSheets.list = res.data;      // 轮播列表
+                this.songSheets.page = res.page;
             }, (error) => {
                 this.initSingerSheet = true;
                 this.$toast.error(error.msg || '获取数据失败');

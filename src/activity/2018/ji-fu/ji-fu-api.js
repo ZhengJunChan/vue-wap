@@ -44,9 +44,9 @@ export default {
      */
     acceptPrize(id, params) {
         if (params) {
-            return ApiUtil.post(`/v2/api/lottery/postaddr?id=${id}`, params);
+            return ApiUtil.post(`/v2/api/member.lottery/postaddr?id=${id}`, params);
         } else {
-            return ApiUtil.post(`/v2/api/lottery/postaddr?id=${id}`);
+            return ApiUtil.post(`/v2/api/member.lottery/postaddr?id=${id}`);
         }
     }
 };

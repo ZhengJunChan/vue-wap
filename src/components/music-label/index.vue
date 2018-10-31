@@ -1,11 +1,11 @@
 <!-- [music_label_component]   @Author: 郑君婵   @DateTime: 2017-10-09 -->
 
 <template>
-  <div class="music_label_component" :class="[type, {'no_cover': !info || !info.imgpic_link}]" v-if="type" @click="goDetail()">
-    <div class="cover" :style="{backgroundImage: `url(${info.imgpic_link}/110/110)`}" @click="goMusicDetail(info.id)"></div>
+  <div class="music_label_component" :class="[type, {'no_cover': !info || !info.coverImage}]" v-if="type" @click="go(item[type].url)">
+    <div class="cover" :style="{backgroundImage: `url(${coverImage && $fixImg(coverImage.link, 'w=110&h=110')})`}" @click="goMusicDetail(info.id)"></div>
     <div class="info">
         <div class="text_nowrap_ellipsis title_label">
-            <span class="type" v-text="getType()"></span>
+            <span class="type" v-text="item[type].type"></span>
             <span class="title" v-text="info && info.title" @click="goMusicDetail(info.id)"></span>
         </div>
         
@@ -26,11 +26,30 @@ import { RouterUtil } from '@/utils';
 export default {
     props: {
         info: Object,
-        type: String
+        type: String,
+        defaultCover: Object
     },
     data() {
         return {
-            icons
+            icons,
+            item: {
+                topic: {
+                    type: '池塘',
+                    url: `/topic/detail?id=${this.info.id}`
+                },
+                music: {
+                    type: '单曲',
+                    url: `/music/${this.info.id}`
+                },
+                song: {
+                    type: '歌单',
+                    url: `/mlist/${this.info.id}`
+                },
+                mv: {
+                    type: 'MV',
+                    url: `/music/${this.info.id}?type=mv`
+                }
+            }
         };
     },
     computed: {
@@ -39,35 +58,12 @@ export default {
         }),
         playing() {
             return this.playingId === this.info.id;
+        },
+        coverImage() {
+            return this.info ? (this.info.imgpic_info || ((this.info.imglist_info && this.info.imglist_info.length) ? this.info.imglist_info[0] : this.defaultCover)) : false;
         }
     },
     methods: {
-        goDetail() {
-            if (this.type === 'topic') {
-                this.go(`/topic/detail?id=${this.info.id}`);
-            }
-
-            if (this.type === 'music') {
-                this.goMusicDetail(this.info.id);
-            }
-
-            if (this.type === 'song') {
-                this.go(`/mlist/${this.info.id}`);
-            }
-        },
-        getType() {
-            if (this.type === 'music') {
-                return '单曲';
-            }
-
-            if (this.type === 'song') {
-                return '歌单';
-            }
-
-            if (this.type === 'topic') {
-                return '池塘';
-            }
-        },
         goMusicDetail(id) {
             this.go(`/music/${id}`);
         },

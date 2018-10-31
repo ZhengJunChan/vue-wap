@@ -47,7 +47,6 @@ let setTouch = function (onode, upfn, downfn, s, deg, t, ds) {
             typeof downfn === 'function' && downfn();
         } else {
             // e.preventDefault();
-            // console.log('操作范围太小');
         }
     };
     function destroyFn() {

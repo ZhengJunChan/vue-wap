@@ -8,10 +8,8 @@
  */
 
 网址中键值对含义： {
-  token: '', // 用户token
-  logAt: '2' // 2：Ios 3：Android
-  // uid: '', // 用户id
-  // isLogined: '' // 用户是否登录, true: 登录，'false'：未登录
+  logintoken: '', // 用户token
+  logat: '2' // 2：Ios 3：Android
 }
 
 // 分享接口：
@@ -19,6 +17,32 @@ this.callAppFunction('share', {
   title: '分享标题', // 分享标题
   type: 5, // 5:抽奖活动,6:投票活动
   alias: '', // 活动别名
+  mediaType: 'music', // web:網頁,img:圖片，music:歌曲,(如果分享音乐的时候，title为歌名，type(5,6,7)，alias可以不传，link为播放链接，imgurl为专辑图片，desc为作者)
+  inputText: '', // 分享时，填充的话语。如：分享至微博，用户可输入的输入框中默认文字
+  link: window.location.origin + '/ciyuan2017', // 分享链接
+  imgUrl: window.location.origin + '/static/imgs/activity/2017/concert.png', // 分享图标
+  desc: '源音塘次元音乐会现场嘉宾' // 分享描述
+});
+/**
+ * 作者:[yangbin]
+ * 时间: 2018/1/31 18:11
+ * 功能介绍：打开分享弹框
+ * 参数：{
+    title: '分享标题', // 分享标题
+    type: 5, // 5:抽奖活动,6:投票活动
+    alias: '', // 活动别名
+    inputText: '', // 分享时，填充的话语。如：分享至微博，用户可输入的输入框中默认文字
+    link: window.location.origin + '/ciyuan2017', // 分享链接
+    imgUrl: window.location.origin + '/static/imgs/activity/2017/concert.png', // 分享图标
+    desc: '源音塘次元音乐会现场嘉宾'// 分享描述
+}
+ */
+
+this.callAppFunction('showShareWindow', {
+  title: '分享标题', // 分享标题
+  type: 5, // 5:抽奖活动,6:投票活动
+  alias: '', // 活动别名
+  sinaDescription: '', // 微博分享的描述
   inputText: '', // 分享时，填充的话语。如：分享至微博，用户可输入的输入框中默认文字
   link: window.location.origin + '/ciyuan2017', // 分享链接
   imgUrl: window.location.origin + '/static/imgs/activity/2017/concert.png', // 分享图标
@@ -42,7 +66,7 @@ this.callAppFunction('go', {
 // 设置title
 this.callAppFunction('setTitle', {
   title: '网页title',
-  headerType: '头部类型' // share：分享，submit：提交
+  headerType: '头部类型' // share：分享，submit：提交，none：没有右边按钮
 });
 
 // 设置token
@@ -68,36 +92,15 @@ this.callAppFunction('showImg');
  * 参数：
  */
 this.callAppFunction('closeLotteryDialog');
-/**
- * 作者:[yangbin]
- * 时间: 2018/1/31 18:11
- * 功能介绍：打开分享弹框
- * 参数：{
-    title: '分享标题', // 分享标题
-    type: 5, // 5:抽奖活动,6:投票活动
-    alias: '', // 活动别名
-    inputText: '', // 分享时，填充的话语。如：分享至微博，用户可输入的输入框中默认文字
-    link: window.location.origin + '/ciyuan2017', // 分享链接
-    imgUrl: window.location.origin + '/static/imgs/activity/2017/concert.png', // 分享图标
-    desc: '源音塘次元音乐会现场嘉宾'// 分享描述
-}
- */
 
-
-this.callAppFunction('showShareWindow');
-
-/**
- * 作者:[yangbin]
- * 时间: 2018/2/7 13:52
- * 功能介绍： 更改app播放状态
- * 参数：play 去播放  pause 去暂停
- */
-callAppFunction('playOrpause', {'status': 'play'});
-// 返回上一页(并刷新页面，但是要用js自己的跳转)：安卓app可用
+// 返回同一个webView的上一页（页面内容刷新）：安卓app可用
 this.callAppFunction('goBackPage');
 
-// 返回上一页(不刷新页面)：安卓app可用
+// 返回上一个webView（上一个webView内容不变，页面不刷新）：安卓app可用
 this.callAppFunction('goBack');
+
+// 刷新页面：安卓app可用
+this.callAppFunction('reloadPage');
 
 // 图片预览接口
 this.callAppFunction('previewer', {
@@ -116,4 +119,19 @@ this.callAppFunction('setGoBackStatus', {
   content: '提示内容', // 没有不显示
   sureBtnText: '确定按钮',
   cancelBtnText: '取消按钮'
+});
+
+/**
+ * 作者:[yangbin]
+ * 时间: 2018/2/7 13:52
+ * 功能介绍： 更改app播放状态
+ * 参数：play 去播放  pause 去暂停
+ */
+callAppFunction('playOrpause', {'status': 'play'});
+
+// 播放歌曲
+this.callAppFunction('playMusic', {'songID': id});
+// 跳轉到音樂詳情
+this.callAppFunction('gotoMusic', {
+  songID: id // 音乐id
 });

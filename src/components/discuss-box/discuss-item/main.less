@@ -1,19 +1,28 @@
 @import './../../../less/config.less';
 
 .discuss_item_component {
-  padding: @padding-30 0;
-  font-size: @small-font;
+  display: flex;
   background-color: @white-color;
   .user_header {
-    float: left;
-    margin-left: @margin-20;
+    margin: 0 @margin-30
   }
 
   .body {
-    padding-left: 113/100rem;
-    &>p,
-    &>div {
-      padding-right: @padding-20;
+    flex: 1;
+    overflow: hidden;
+    padding-right: @padding-40;
+    padding-bottom: @padding-30;
+    border-bottom: 1px solid #ebebeb;
+    margin-bottom: @margin-30;
+  }
+
+  .name_label{
+    display: flex;
+    &>p{
+      flex: 1;
+    }
+    .icon{
+      margin-left: 50/100rem;
     }
   }
 
@@ -50,8 +59,8 @@
     padding: @padding-30;
     margin-top: @margin-20;
     line-height: 46/100rem;
-    margin-right: @margin-20;
     background-color: @bg-color;
+    border-radius: 10/100rem;
   }
 
   .first_discuss {
@@ -74,6 +83,7 @@
     width: 110/100rem;
     height: 110/100rem;
     margin-right: 10/100rem;
+    background-size: contain;
     &:last-child {
       margin-right: 0;
     }

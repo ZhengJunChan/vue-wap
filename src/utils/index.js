@@ -11,6 +11,7 @@ import TokenUtil from './token-util.js';
 import RegularUtil from './regular-util.js';
 import CommonUtil from './common-util.js';
 import CookieUtil from './cookie-util.js';
+import AndroidApp from './android-app.js';
 
 export {
     ApiUtil,
@@ -20,5 +21,6 @@ export {
     TokenUtil,
     RegularUtil,
     CommonUtil,
-    CookieUtil
+    CookieUtil,
+    AndroidApp
 };

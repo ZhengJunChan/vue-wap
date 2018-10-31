@@ -1,6 +1,5 @@
 <template>
-<div class="activity_module" :class="{wei_xin: isFromWX, from_app: isFromApp }">
-	<header-label class="header_label" :title="title"></header-label>
+<div class="activity_module" :class="{ wei_xin: isFromWX, from_app: isFromApp, from_pc: isFromPc }">
     <router-view class="activity_page"></router-view>
     <download-label class="download"></download-label>
 </div>
@@ -8,21 +7,17 @@
 
 <script type="text/javascript">
 import { BrowserUtil } from '@/utils';
-import { DownloadLabel, HeaderLabel } from '@/components';
+import { DownloadLabel, AlertBox } from '@/components';
 
 export default {
     components: {
         DownloadLabel,
-        HeaderLabel
-    },
-    data() {
-        return {
-            title: document.title
-        };
+        AlertBox
     },
     computed: {
         isFromWX: () => BrowserUtil.isFormWeiXin(),
-        isFromApp: () => BrowserUtil.isFormApp()
+        isFromApp: () => BrowserUtil.isFormApp(),
+        isFromPc: () => !BrowserUtil.isMobile()
     }
 };
 </script>

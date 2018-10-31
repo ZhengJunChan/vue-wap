@@ -11,49 +11,7 @@
   }
 
   .padiing_content {
-    padding: @padding-30 @padding-20;
-  }
-   .topic-detail-title{
-     padding: 0.1rem 0.2rem 0;
-     font-size: 0.34rem;
-     color: #1a1717;
-     font-weight: bold;
-     text-align: center;
-     line-height: 0.5rem;
-     margin-bottom: 0.3rem;
-   }
-  .top_label {
-    position: relative;
-    font-size: @smaller-font;
-  }
-
-  .title {
-    padding: 0 180/100rem 0 100/100rem;
-  }
-
-  .singer_header {
-    position: absolute;
-    top: 50%;
-    left: @padding-20;
-    margin-top: -30/100rem;
-  }
-
-  .name {
-    color: @grey-color;
-  }
-
-  .fallow {
-    color: @rad-color;
-    position: absolute;
-    right: @padding-40;
-    height: 50/100rem;
-    line-height: 50/100rem;
-    text-align: center;
-    padding: 0 @padding-20;
-    border: 1px solid @rad-color;
-    border-radius: 25/100rem;
-    top: 50%;
-    margin-top: -25/100rem;
+    padding: @padding-40 @padding-30;
   }
 
   .music_label {
@@ -62,21 +20,24 @@
 
   .text_content {
     color: @black-font;
+    word-wrap: break-word;
     line-height: 48/100rem;
-    margin-top: @margin-50;
   }
 
   .img_list {
     img {
       max-width: 100%;
       margin-top: @margin-30;
+      border-radius: 10/100rem;
     }
   }
 
-  .vote {}
+  .location {
+    margin-top: 24/100rem;
+  }
 
   .tag_list {
-    margin: @margin-30 0 @margin-20;
+    margin: @margin-30 0 16/100rem;
   }
 
   .module_title {
@@ -102,29 +63,41 @@
   }
 
   .more_btn {
+    text-align: center;
+    color: #9da2a6;
     margin-top: 0;
-    padding: @padding-10 0 @padding-30;
-    background-color: @content-bg-color;
-    &>div {
-      margin-top: 0;
+    padding-bottom: @padding-50;
+    &>span {
+      padding-right: 32/100rem;
+      background: url(./../../../imgs/2_5_0/icon_indexjianjie_more2.png) right center no-repeat;
+      background-size: 14/100rem auto;
     }
   }
 
-  .min_title{
-    color: @grey-color;
+  .vote {
+    &>.title {
+      margin-top: 0;
+      margin-bottom: @margin-10;
+    }
+
+    .min_title {
+      color: @title-color;
+      font-size: @small-font;
+      margin-bottom: 8/100rem;
+    }
   }
 
   .vote_detail {
-    font-size: @small-font;
-    &>li{
-      margin-top: 30/100rem;
+    padding: 0 @padding-10 @padding-10;
+    &>li {
+      margin-top: 10/100rem;
     }
 
-    .checker{
+    .checker {
       width: 50/100rem;
       height: 40/100rem;
       background: url(./../../../imgs/common/icon_chitang_tpxuanze.png) right center/0.3rem 0.3rem no-repeat;
-      &.selected{
+      &.selected {
         background-image: url(./../../../imgs/common/icon_chitang_selected.png);
       }
     }
@@ -135,20 +108,24 @@
     display: flex;
   }
 
-  .option_name{
+  .option_name {
     display: inline-block;
     flex: 1;
   }
 
   .process_box {
     display: none;
+    color: #616666;
+    ;
     margin-top: @margin-10;
+    &.selected {
+      color: @pink-color;
+    }
   }
 
   .vote_num,
   .vote_per {
     text-align: right;
-    color: @light-grey-color;
   }
 
   .vote_per {
@@ -156,7 +133,7 @@
   }
 
   .vote_num {
-    width: 160/100rem;
+    width: 120/100rem;
   }
 
   .process_label {
@@ -170,9 +147,9 @@
 
   .process_item {
     display: inline-block;
-    background-color: @bg-color;
+    background-color: #dae0e6;
     border-radius: 12.5/100rem;
-    height: 25/100rem;
+    height: 20/100rem;
   }
 
   .show_process {
@@ -180,28 +157,34 @@
       display: flex;
     }
   }
-  .vote_discuss{
+  .vote_discuss {
     text-align: center;
-    &>textarea{
+    &>textarea {
       width: 100%;
       resize: none;
       display: block;
       height: 104/100rem;
       padding: @padding-20;
-      margin-top: 40/100rem;
-      font-size: @small-font;
+      margin-top: 10/100rem;
+      font-size: @min-font;
       border-radius: 5/100rem;
       color: @light-grey-color;
       background-color: @bg-color;
     }
 
-    &>button{
-      font-size: @normal-font;
-      padding: 15/100rem 45/100rem;
-      margin-top: @margin-30;
-      background-color: @rad-color;
+    &>button {
       color: #fff;
-      border-radius: 28/100rem;
+      width: 160/100rem;
+      height: 60/100rem;
+      text-align: center;
+      line-height: 60/100rem;
+      border-radius: 30/100rem;
+      margin-top: @margin-30;
+      background-image: linear-gradient(90deg, #ff73a1 0%, #ff7fae 37%, #ffb2b2 100%);
     }
   }
+}
+
+.cell_title {
+  margin-left: @margin-30;
 }

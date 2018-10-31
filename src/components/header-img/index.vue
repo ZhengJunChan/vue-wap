@@ -11,7 +11,7 @@ import { BrowserUtil, RouterUtil } from '@/utils';
 export default {
     props: {
         size: [Number],
-        headerImg: String,
+        headerImg: [String],
         noCompress: Boolean,
         borderColor: String,
         vip: [Boolean, Number],
@@ -24,18 +24,20 @@ export default {
                 backgroundImage: this.headerImg || ''
             };
 
-            if (!this.noCompress) {
-                style.backgroundImage && (style.backgroundImage += `/${this.size}/${this.size}`);
+            if (!this.noCompress && style.backgroundImage) {
+                style.backgroundImage = this.$fixImg(style.backgroundImage, `w=${this.size}&h=${this.size}`);
             }
 
             if (this.borderColor) {
                 style.border = '2px solid ' + this.borderColor;
+                style.padding = (this.size - 4) / 200 + 'rem';
             }
 
-            return {
-                padding: style.padding,
-                backgroundImage: `url(${style.backgroundImage})`
-            };
+            if (style.backgroundImage) {
+                style.backgroundImage = `url(${style.backgroundImage})`;
+            }
+
+            return style;
         },
         setVipStyle() {
             let right = 0;
@@ -43,7 +45,7 @@ export default {
             if (this.size > 100) {
                 right = this.size * 0.02;
             } else {
-                right = 0 - this.size * 0.12;
+                right = 0 - this.size * 0.08;
             }
 
             return {

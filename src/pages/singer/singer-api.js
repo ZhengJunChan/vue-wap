@@ -18,12 +18,12 @@ export default {
         return ApiUtil.get(`/v2/api/circle`, params);
     },
     /**
-    * [getGreatSheet 获取音乐人收藏歌曲形成的歌单信息]
+    * [getGreatSheet 获取音乐人收藏的歌单]
     * @Author   郑君婵
     * @DateTime 2017-07-29
     */
     getGreatSheet(params) {
-        return ApiUtil.get(`/v2/api/musician/${params.id}/box`);
+        return ApiUtil.get(`/v2/api/musician/${params.id}/collection`);
     },
     /**
      * [getSingerLikesMuiscs 获取音乐人收藏的歌曲]

@@ -26,7 +26,7 @@
 
 <script type="text/javascript">
 
-import { RegularUtil, RouterUtil } from '@/utils';
+import { RegularUtil } from '@/utils';
 import CommonApi from './../common-api.js';
 
 import { HeaderImg } from '@/components';
@@ -60,14 +60,15 @@ export default {
     },
     created() {
         this.init();
-        // alert(window.location.href);
     },
     methods: {
         init() {
+            this.openidLogin();
             this.getUserInfo();
         },
-        getUserInfo() {
+        openidLogin() {
             let params = {
+                type: 1,
                 openid: this.user.openId
             };
 
@@ -76,10 +77,21 @@ export default {
                 return;
             };
 
+            CommonApi.openidLogin(params).then(res => {
+                if (res.code === 200) {
+                    this.$store.dispatch('setUserInfo', res.data);
+                }
+            });
+        },
+        getUserInfo() {
+            let params = {
+                openid: this.user.openId
+            };
+
             CommonApi.getThirdUserInfo(params).then((res) => {
                 if (res.code === 200) {
                     this.user.sex = res.data.sex;
-                    this.user.name = res.data.name;
+                    this.user.name = res.data.nickname;
                     this.user.type = res.data.type;
                     this.user.header = res.data.head_link;
                 }
@@ -87,8 +99,8 @@ export default {
         },
         sendCode() {
             let params = {
-                name: this.accout.val,
-                type: 'sms'
+                key: this.accout.val,
+                type: 'addbind'
             };
 
             if (this.code.sending) {
@@ -98,7 +110,7 @@ export default {
             this.checkAccount(() => {
                 this.setTimer();
 
-                CommonApi.sendCode(params).then(res => {
+                CommonApi.sendCodeForBind(params).then(res => {
                     if (res.code !== 200) {
                         this.accout.error = res.msg;
                     }
@@ -126,10 +138,8 @@ export default {
         },
         bind() {
             var params = {
-                openid: this.$route.query.openid,
-                thirdname: this.accout.val,
-                thirdcode: this.code.val,
-                type: 1
+                key: this.accout.val,
+                code: this.code.val
             };
 
             if (this.logining) {
@@ -145,7 +155,7 @@ export default {
                     return;
                 }
 
-                CommonApi.bindAccount(params).then(res => {
+                CommonApi.bindMobile(params).then(res => {
                     this.submitCallback(res);
                 }, error => {
                     this.logining = false;
@@ -207,7 +217,7 @@ export default {
                 this.$toast.error('找不到上一个页面');
             }
 
-            RouterUtil.go(returnUrl, this.$router);
+            window.location.replace(returnUrl);
         }
     }
 };
