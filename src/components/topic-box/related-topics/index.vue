@@ -2,16 +2,14 @@
 
 <template>
   <div class="related_topics_component">
-  	<h2 class="title">
-        <span>相关池塘</span>
-    </h2>
+    <cell class="title" title="相关池塘" />
 
     <div class="x_scroller">
         <div class="scroller_label clear_float" :style="{width: scrollerWidth}">
           <div class="fl item" v-for="(item, index) in list"
           @click="goTopicDetail(item.id)"
           v-if="!maxNum || (maxNum && index < maxNum)"
-          :style="{backgroundImage: `url(${getBgImg(item) || defaultImg}/450/200)`}">
+          :style="{backgroundImage: `url(${getBgImg(item) || defaultImg})`}">
             <p class="text">
                 <span v-text="item.title"></span>
             </p>
@@ -22,11 +20,14 @@
 </template>
 
 <script type="text/javascript">
-// import $ from 'jquery';
+import Cell from './../../cell';
 import { RouterUtil } from '@/utils';
 import TopicApi from './../topic-api.js';
 
 export default {
+    components: {
+        Cell
+    },
     props: {
         list: Array,
         maxNum: Number
@@ -51,11 +52,11 @@ export default {
     },
     methods: {
         getBgImg(item) {
-            if (!item.imglist_link || !item.imglist_link[0]) {
+            if (!item.imglist_info || !item.imglist_info[0]) {
                 return this.defaultImg;
             }
 
-            return item.imglist_link[0];
+            return this.$fixImg(item.imglist_info[0].link, 'w=450&h=200');
         },
         getDefaultImg() {
             let params = {
@@ -76,7 +77,7 @@ export default {
 
                 for (; index < res.data.length; index++) {
                     if (res.data[index].alias === 'topic') {
-                        this.defaultImg = res.data[index].imgpic_link;
+                        this.defaultImg = res.data[index].imgpic_info && this.$fixImg(res.data[index].imgpic_info.link, 'w=450&h=200');
 
                         return;
                     }
@@ -91,7 +92,7 @@ export default {
                 count = this.maxNum;
             }
 
-            width = count * 470 + 20;
+            width = count * 480 + 30;
 
             this.scrollerWidth = width / 100 + 'rem';
         },

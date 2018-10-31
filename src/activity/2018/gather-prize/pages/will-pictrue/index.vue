@@ -43,9 +43,7 @@
             });
             (!this.value || !this.value.file) && this.createPicture(Object.assign({}, this.options, {text: textList})).then((e) => {
                 this.$emit('isGetPicture', e);
-                console.log(111);
             }).catch((e) => {
-                console.log(222);
                 this.$emit('isGetPicture', e);
             });
             this.value && this.value.file && this.$emit('isGetPicture', {data: this.value, code: 200});

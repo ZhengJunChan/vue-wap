@@ -2,8 +2,10 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 
 import wx from './wx';
+import alert from './alert';
 import player from './player';
 import user from './user';
+import configs from './configs';
 
 // vux提供的插件
 const vux = {
@@ -24,7 +26,9 @@ const store = new Vuex.Store({
         player,
         vux,
         wx,
-        user
+        user,
+        alert,
+        app: configs
     }
 });
 

@@ -2,9 +2,9 @@
 
 <template>
 <div class="singer_header_component">
-  <blur :blur-amount=20 :url="info.head_link+'/140/140'" height="auto">
+    <div class="blur_bg" :style="{backgroundImage: `url(${$fixImg(info.head_info && info.head_info.link, `w=140&h=140`)})`}"></div>
     <div class="content">
-      <header-img :size="140" :header-img="info.head_link" :header-id="info.id" :vip="info.member_type==2"></header-img>
+      <header-img :size="140" :header-img="info.head_info && info.head_info.link" :header-id="info.id" :vip="info.is_music == 3"></header-img>
 
       <h2>
         <span class="name">
@@ -14,25 +14,16 @@
       </h2>
 
       <div class="flow">
-        <flexbox :gutter="0">
-          <flexbox-item class="item">
-            <span v-text="attentionNum + '关注'"></span>
-          </flexbox-item>
-          <flexbox-item class="item">
-            <span v-text="fansNum + '粉丝'"></span>
-          </flexbox-item>
-          <flexbox-item class="item">
-            <span v-text="ipsNum + '人气'"></span>
-          </flexbox-item>
-        </flexbox>
+        <div class="item" v-text="'关注' + attentionNum"></div>
+        <div class="split_line"></div>
+        <div class="item" v-text="'粉丝' + fansNum"></div>
       </div>
 
       <div class="tab" @click="getDownloadPage()">
-          <div class="item fl fallow">关注</div>
-          <div class="item fr email">私信</div>
+          <span>关注</span>
       </div>
     </div>
-  </blur>
+  <!-- </blur> -->
 </div>
 </template>
 

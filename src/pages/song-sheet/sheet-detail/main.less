@@ -3,23 +3,31 @@
 .sheet_detail_page {
   @content-padding: @padding-20;
   .body {
-    padding-top: @padding-10;
     background-color: @grey-bg-color;
 
     &>div {
       background-color: @white-color;
+      &>.title{
+        font-weight: normal;
+        color: @title-color;
+        font-size: @small-font;
+        margin-bottom: @margin-20;
+      }
+    }
+
+    .tag_box{
+      padding: 0 @padding-20;
     }
 
     .music_list {
-      padding-top: @padding-30;
-      margin-bottom: @padding-10;
-      .list_title {
-        margin: 0 @content-padding @padding-20;
+      padding-top: @padding-20;
+      &>.title {
+        margin: 0 @padding-30 @padding-30;
       }
     }
 
     .sheet {
-      padding: @padding-30 @content-padding;
-    }
+      padding: 47/100rem @padding-30 @padding-20;
+    } 
   }
 }

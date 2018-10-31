@@ -1,0 +1,88 @@
+@import './../../less/config.less';
+
+.cell_component {
+  margin: 40/100rem 0 30/100rem;
+  position: relative;
+  display: inline-block;
+  .title {
+    position: relative;
+    font-size: @big-font;
+    color: @title-color;
+    padding-left: 70/100rem;
+    background-size: 43/100rem 43/100rem;
+    background-position: left center;
+    background-repeat: no-repeat;
+    z-index: 1;
+  }
+
+  .bg {
+    position: absolute;
+    right: 0;
+    bottom: 3px;
+    width: 88/100rem;
+    height: 13/100rem;
+    background-color: #ffd9e6;
+  }
+}
+
+.music_lry {
+  height: 90/100rem;
+  margin-top: 30/100rem;
+  padding: 13/100rem 6/100rem 13/100rem 97/100rem;
+  background: url(./../../imgs/2_5_0/img_yuan.png) 12/100rem bottom/contain no-repeat;
+  .text {
+    position: relative;
+    margin-left: 10/100rem;
+    height: 64/100rem;
+    padding: 0 32/100rem;
+    line-height: 64/100rem;
+    font-size: @smallst-font;
+    border-radius: 32/100rem;
+    background-color: #f7f7f7;
+    &:after {
+      position: absolute;
+      content: "";
+      display: block;
+      top: 0;
+      left: -10/100rem;
+      width: 100%;
+      height: 100%;
+      background-image: url(./../../imgs/2_5_0/img_index_yuan_arrow.png);
+      background-position: left top;
+      background-size: auto 100%;
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+.great_sheet {
+  color: #fff;
+  position: relative;
+  height: 210/100rem;
+  margin-top: 10/100rem;
+  background-size: cover;
+  border-radius: @box-radius;
+  background-position: center;
+  .shadow {
+    height: 100%;
+    width: 100%;
+    background: url(./../../imgs/2_5_0/img_song_sheet_masking2.png) left bottom no-repeat;
+    background-size: auto 97/100rem;
+  }
+  .text_label {
+    position: absolute;
+    left: 20/100rem;
+    top: 164/100rem;
+    font-size: @smallst-font;
+    .type {
+      width: 64/100rem;
+      height: 36/100rem;
+      display: inline-block;
+      text-align: center;
+      font-size: @min-font;
+      line-height: 34/100rem;
+      border: 1px solid #fff;
+      border-radius: 6/100rem;
+    }
+  }
+}

@@ -67,8 +67,6 @@ let createImg = function (p, src, x, y, x1, y1, fn) {
             typeof fn === 'function' && fn();
         };
         a.onerror = (e) => {
-            console.log(777);
-            console.log(e);
             resolve({
                 code: 200
             });

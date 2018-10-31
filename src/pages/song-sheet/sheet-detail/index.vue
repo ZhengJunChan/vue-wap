@@ -1,19 +1,19 @@
 <!-- [sheet_detail_page]   @Author: 郑君婵   @DateTime: 2017-09-28 -->
 <template>
   <div class="sheet_detail_page">
-    <music-header :info="songSheetInfos" no-doughnut type="sheet" @play="play" :playing="playing"></music-header>
+    <music-header :info="songSheetInfos" no-doughnut type="sheet"></music-header>
 
-    <tag-box :list="songSheetInfos.tags" :title="titles.tag.sheet" :icon="titles.tag.icon"></tag-box>
+    <tag-box :list="songSheetInfos.tags" title="歌单标签"></tag-box>
 
     <div class="body">
         <div class="music_list">
-            <box-title class="list_title icon" :title="titles.musicList.sheet" :icon="titles.musicList.icon"></box-title>
+            <h2 class="title">歌曲列表（共{{songSheetInfos.total}}首）</h2>
 
-            <music-list class="list_box" :list="songSheetInfos.music" type="detail"></music-list>
+            <music-list class="list_box" :list="songSheetInfos.music" type="detail" @on-clicked="addPlayCount"></music-list>
         </div>
 
         <div class="sheet">
-            <box-title class="icon" :title="titles.sheet.sheet" :icon="titles.sheet.icon"></box-title>
+            <h2 class="title">推荐的歌单</h2>
 
             <song-sheet-list :list="songSheetInfos.recommend" type="list" :max-num="6"></song-sheet-list>
         </div>
@@ -26,7 +26,11 @@ import { mapState } from 'vuex';
 import titles from '@/pages/title.js';
 import SongSheetApi from './../song-sheet-api.js';
 
-import { MusicHeader, TagBox, SongSheetList, BoxTitle, MusicList } from '@/components';
+import TagBox from '@/components/tag/tag-box';
+import BoxTitle from '@/components/box-title';
+import MusicHeader from '@/components/music-header';
+import MusicList from '@/components/music-box/music-list';
+import SongSheetList from '@/components/song-sheet/song-sheet-list';
 
 export default {
     components: {
@@ -42,7 +46,9 @@ export default {
             songSheetId: this.$route.params.id, // 歌单id
             songSheetInfos: {
                 tags: [],
-                counts: 0
+                total: 0,
+                counts: 0,
+                music: []
             } // 歌单信息
         };
     },
@@ -80,9 +86,9 @@ export default {
                 }
 
                 this.songSheetInfos = res.data;      // 轮播列表
-                this.$parent.title = this.songSheetInfos.title;
+                // this.$store.commit('setTitle', this.songSheetInfos.title);
                 this.$share({
-                    imgUrl: res.data.imgpic_link,
+                    imgUrl: res.data.imgpic_info.link,
                     desc: res.data.remark,
                     title: res.data.title
                 });
@@ -99,7 +105,11 @@ export default {
             this.$store.dispatch('playSongSheet', params);
         },
         addPlayCount() {
-            this.songSheetInfos.counts++;
+            let count = Number(this.songSheetInfos.counts_text);
+
+            if (!isNaN(count)) {
+                this.songSheetInfos.counts_text = ++count;
+            }
         }
     }
 };

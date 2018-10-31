@@ -4,7 +4,7 @@
       <div class="header">
         <img class="logo" src="/static/imgs/icons/logo_red.png">
         <!-- <img class="logo" src="/static/imgs/iconslogo_red.png"> -->
-        <h1>源音塘2.0</h1>
+        <h1>源音塘</h1>
         <p>全新升级 畅享音悦无极限</p>
       </div>
   		<a class="ios_download" @click="download(ios)">

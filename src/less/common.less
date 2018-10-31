@@ -1,0 +1,25 @@
+// 超过 @clamp 隐藏，并显示省略号
+.overhide(@clamp) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  word-wrap: break-word;
+  text-align: start;
+  -webkit-line-clamp: @clamp; //向显示多少行就给多大值
+  -webkit-box-orient: vertical;
+}
+
+// 上下左右居中
+.absolute_center() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// 字体描边
+.text_stroke(@fillColor, @strokeColor, @strokeWidth) {
+  font-weight: bold;
+  -webkit-text-fill-color: @fillColor;
+  -webkit-text-stroke: @strokeWidth @strokeColor;
+}

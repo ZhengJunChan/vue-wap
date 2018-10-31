@@ -1,28 +1,33 @@
 <!-- [music_detail_item_component]   @Author: 郑君婵   @DateTime: 2017-09-27 -->
 
 <template>
-  <div class="music_detail_item_component" :class="active && 'active'">
-    <div class="index">
-      <span class="number" v-text="index"></span>
-      <img class="active_img" src="./../imgs/detail-pause.png" v-if="pause">
-      <img class="active_img" src="./../imgs/detail-playing.gif" v-else>
-    </div>
-    <div class="info_box" :class="index === 1 && 'no_border'" @click="playMusic(info)">
-      <h2 class="title" v-text="info.title"></h2>
-      <p class="singer" v-text="info.nickname"></p>
+  <div class="music_detail_item_component" :class="active && 'active'" @click="playMusic(info)">
+    <div class="cover_img" :style="{backgroundImage: `url(${info.imgpic_info ? info.imgpic_info.link : info.imgpic_link})`}"></div>
+    <div class="info_box" :class="info.mv && 'mv_tag'">
+        <div>
+          <h2 class="title text_nowrap_ellipsis" v-text="info.title"></h2>
+          <p class="singer text_nowrap_ellipsis">
+              <span class="type" v-if="info.music_type == 1">原创</span>
+              {{info.nickname}}
+          </p>
+        </div>
+        <icon-mv class="mv_icon" />
+        <span class="play_btn" :class="{ playing: !pause }"></span>
     </div>
   </div>
 </template>
 
 <script type="text/javascript">
 import { mapState } from 'vuex';
-
-import HeaderImg from './../../header-img';
-import icons from './../icon.js';
 import { RouterUtil } from '@/utils';
+
+import icons from './../icon.js';
+import { IconMv } from './../../icon';
+import HeaderImg from './../../header-img';
 
 export default {
     components: {
+        IconMv,
         HeaderImg
     },
     props: {
@@ -40,7 +45,7 @@ export default {
             pause: state => state.player.playing.song.pause
         }),
         active() {
-            return this.playingId === this.info.id;
+            return this.playingId === this.info.id && !this.pause;
         }
     },
     methods: {
@@ -52,10 +57,14 @@ export default {
         },
         playMusic(music) {
             let params = {
-                music
+                music,
+                addPlayCount: this.onClick
             };
 
             this.$store.dispatch('playSong', params);
+        },
+        onClick() {
+            this.$emit('on-clicked');
         }
     }
 };

@@ -21,11 +21,12 @@ export default {
     },
     data() {
         return {
+            isInitMenu: false,
             menus: [{
                 title: '主页',
                 link: '/singer/' + this.$route.params.id
             }, {
-                title: '音乐',
+                title: '作品',
                 link: '/singer/' + this.$route.params.id + '/detail/release'
             }, {
                 title: '歌单',
@@ -36,7 +37,11 @@ export default {
             }],
             activeTab: this.$route.meta.tabIndex,
             singerId: this.$route.params.id,
-            singerInfos: {}
+            singerInfos: {
+                billboard_list: [],
+                interest_tag: [],
+                identity_tag: []
+            }
         };
     },
     watch: {
@@ -67,14 +72,15 @@ export default {
                     return;
                 }
 
-                this.singerInfos = res.data;      // 轮播列表
-                this.$parent.title = this.singerInfos.nickname;
+                this.singerInfos = res.data;
 
                 this.$share({
-                    imgUrl: res.data.head_link,
+                    imgUrl: res.data.head_info.link,
                     desc: res.data.signature,
                     title: res.data.nickname
                 });
+
+                this.isInitMenu = true;
             }, (error) => {
                 this.$toast.error(error.msg || '获取数据失败');
             });
@@ -82,7 +88,3 @@ export default {
     }
 };
 </script>
-
-<style lang="less" scoped>
-@import './main.less';
-</style>

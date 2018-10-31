@@ -2,34 +2,24 @@
 <template>
   <div class="topic_detail_page">
     <div class="padiing_content">
-      <div class="topic-detail-title" v-text="topic.title" v-if="topic.title"></div>
-      <div class="top_label">
-        <header-img class="singer_header" :size="60" :header-img="topic.head_link" :header-id="topic.uid" :vip="topic.member_type==2"></header-img>
-
-        <div class="title">
-          <p class="name">
-            <span @click="goMusicianDetail(topic.uid)" v-text="topic.nickname"></span>
-          </p>
-          <p class="time_desc" v-text="topic.create_time"></p>
-        </div>
-
-        <div class="fallow" @click="getDownloadPage()">+ 关注</div>
-      </div>
-
-      <music-label class="music_label" type="music" :info="musicInfo" v-if="musicInfo.id"></music-label>
-
-      <p class="text_content" v-html="topic.content"></p>
-
-      <div class="img_list" v-if="topic.imglist">
-        <img v-for="img in topic.imglist_link" :src="`${img}`">
-      </div>
+      <user-header-label :info="topic" />
 
       <tag-list v-if="topic.tag && topic.tag.length" class="tag_list" :list="topic.tag"></tag-list>
+
+      <p class="text_content" v-html="$parseHtml(topic.content)"></p>
+
+      <div class="img_list" v-if="topic.imglist">
+        <img v-for="img in topic.imglist_info" :src="$fixImg(img.link)">
+      </div>
+
+      <music-label class="music_label" :type="getLabelType(topic.item_type)" :info="topic.item_info" :default-cover="topic.share_default_img_info" v-if="topic.item_info" />
+
+      <location class="location" :addr="topic.place_desc" v-if="topic.place_desc" />
     </div>
 
     <!-- ************************ 投票 ************************ -->
     <div class="vote padiing_content" v-if="topic.choice == 1">
-      <h2 class="module_title">投票</h2>
+      <cell class="title" title="投票" />
 
       <p class="min_title">{{ topic.question_name }}({{topic.votetype > 1 ? '多选' : '单选'}})</p>
 
@@ -40,7 +30,7 @@
             <div class="checker fr" @click="selected(option.id)" :class="{'selected': selectedIds.indexOf(option.id) >= 0}"></div>
           </div>
 
-          <div class="clear_float process_box">
+          <div class="clear_float process_box" :class="{'selected': selectedIds.indexOf(option.id) >= 0}">
             <div class="process_label">
                 <div class="process_bar">
                   <div class="process_item" :style="{width: computedVotePreCount(option.votenum)}"></div>
@@ -62,16 +52,20 @@
 
     <related-topics :list="topic.recommend" :max-num="10" v-show="topic.recommend && topic.recommend.length"></related-topics>
 
-    <h2 class="discuss_title" v-if="hotDiscuss.length">热门评论</h2>
+    <div v-if="hotDiscuss.length">
+        <cell class="cell_title" title="热门评论" />
 
-    <discuss-list class="discuss_list" :list="hotDiscuss" :max-num="page.perPage"></discuss-list>
+        <discuss-list class="discuss_list no_bottom_border" :list="hotDiscuss" :max-num="page.perPage"></discuss-list>
+    </div>
 
-    <h2 class="discuss_title" v-if="discussList.length">全部评论</h2>
+    <div v-if="discussList.length">
+        <cell class="cell_title" title="全部评论" />
 
-    <discuss-list class="discuss_list" :list="discussList" :max-num="page.perPage"></discuss-list>
+        <discuss-list class="discuss_list" :list="discussList" :max-num="page.perPage"></discuss-list>
+    </div>
 
     <div class="more_btn" v-if="page.totalCount > page.perPage">
-      <more-btn :text="`查看评论${page.totalCount}条`" @click="getDownloadPage()"></more-btn>
+      <span @click="getDownloadPage()">查看全部评论</span>
     </div>
   </div>
 </template>
@@ -81,27 +75,30 @@ import TopicApi from './../topic-api.js';
 import { RouterUtil } from '@/utils';
 import { formatNumber } from '@/filters';
 
-import { HeaderImg, MusicLabel, TagList, RelatedTopics, DiscussList, MoreBtn } from '@/components';
+import { HeaderImg, MusicLabel, TagList, RelatedTopics, DiscussList, MoreBtn, UserHeaderLabel, Location, Cell } from '@/components';
 
 export default {
     components: {
+        Cell,
         HeaderImg,
         MusicLabel,
         TagList,
         RelatedTopics,
         DiscussList,
-        MoreBtn
+        MoreBtn,
+        UserHeaderLabel,
+        Location
     },
     data() {
         return {
-            topic: {},
-            musicInfo: {
-                type: 'music',
-                imgpic_link: '',
-                id: 0,
-                title: '',
-                uid: 0,
-                nickname: ''
+            topic: {
+                head_info: {
+                    link: ''
+                },
+                tag: [],
+                content: '',
+                imglist: [],
+                place_desc: ''
             },
             topicId: this.$route.query.id,
             discussList: [],
@@ -130,7 +127,7 @@ export default {
             this.getDiscussList();
         },
         /**
-         * [getCollectionSongs 获取TA的音乐头部信息]
+         * [getTopicList 获取TA的音乐头部信息]
          * @Author   郑君婵
          * @DateTime 2017-10-12
          */
@@ -145,23 +142,13 @@ export default {
                 }
 
                 this.topic = res.data;
-                this.setMusicInfo(res.data);
-
-                this.$parent.title = this.topic.title;
 
                 this.$share({
-                    imgUrl: res.data.imglist_link && res.data.imglist_link[0],
+                    imgUrl: res.data.imglist_info && (res.data.imglist_info.length > 0) && res.data.imglist_info[0].link,
                     desc: res.data.content,
                     title: res.data.title
                 });
             });
-        },
-        setMusicInfo(topic) {
-            this.musicInfo.imgpic_link = topic.imgpic_link;
-            this.musicInfo.id = topic.music_id;
-            this.musicInfo.title = topic.music_title;
-            this.musicInfo.uid = topic.music_uid;
-            this.musicInfo.nickname = topic.music_nickname;
         },
         /**
          * [getMusicsList 获取音乐列表]
@@ -174,7 +161,7 @@ export default {
                 id: this.topicId
             };
 
-            TopicApi.getDiscussList(params).then((res) => {
+            TopicApi.getDiscussList(params).then(res => {
                 if (res.code !== 200) {
                     this.$toast.error(res.msg);
                     return;
@@ -195,7 +182,7 @@ export default {
                 id: this.topicId
             };
 
-            TopicApi.getDiscussList(params).then((res) => {
+            TopicApi.getDiscussList(params).then(res => {
                 if (res.code !== 200) {
                     this.$toast.error(res.msg);
                     return;
@@ -208,12 +195,6 @@ export default {
         },
         getDownloadPage() {
             RouterUtil.getDownloadPage(this.router);
-        },
-        goMusicianDetail(id) {
-            this.go(`/singer/${id}`);
-        },
-        go(link) {
-            RouterUtil.go(link, this.$router);
         },
         selected(id) {
             if (!this.selectedIds.length) {
@@ -265,6 +246,16 @@ export default {
             }
 
             return per;
+        },
+        getLabelType(type) {
+            switch (Number(type)) {
+            case 1: type = 'music'; break;
+            case 2: type = 'song'; break;
+            case 3: type = 'topic'; break;
+            case 4: type = 'mv'; break;
+            }
+
+            return type;
         },
         formatNumber
     }

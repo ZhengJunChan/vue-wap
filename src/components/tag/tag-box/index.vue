@@ -2,7 +2,7 @@
 
 <template>
   <div class="tag_box_component" v-if="list.length">
-    <box-title :title="title" :icon="icon"></box-title>
+    <h2 class="title " v-text="title"></h2>
 
   	<div class="tag_item" v-for="(tag, index) in list" v-text="tag.title"></div>
   </div>
@@ -10,7 +10,6 @@
 
 <script type="text/javascript">
 
-import icon from './../icon.js';
 import BoxTitle from './../../box-title';
 
 export default {
@@ -27,10 +26,6 @@ export default {
         title: {
             type: String,
             default: '相关标签'
-        },
-        icon: {
-            type: String,
-            default: icon
         }
     }
 };

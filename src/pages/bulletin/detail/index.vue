@@ -44,7 +44,7 @@ export default {
                     this.bulletin.content = res.data.content;
                     this.bulletin.create_time = res.data.create_time;
 
-                    this.$parent.title = this.bulletin.title;
+                    this.$store.commit('setTitle', this.bulletin.title);
 
                     this.$nextTick(() => {
                         this.$share({

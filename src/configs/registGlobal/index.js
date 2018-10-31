@@ -2,6 +2,8 @@ import Vue from 'vue';
 import { BrowserUtil } from '@/utils';
 
 import share from './share.js';
+import fixImg from './fixImg.js';
+import stopPreview from './stop-preview.js';
 import callAppFunction from './callAppFunction.js';
 
 export default function () {
@@ -13,6 +15,12 @@ export default function () {
    * @param    {object}   params  [参数对象]
    */
     Vue.prototype.callAppFunction = callAppFunction;
+
+    Vue.prototype.$share = share;
+
+    Vue.prototype.$fixImg = fixImg;
+
+    Vue.prototype.$stopPreview = stopPreview;
 
     Vue.prototype.$toast = {
         error: function (text) {
@@ -62,12 +70,13 @@ export default function () {
         }
     };
 
-    Vue.prototype.$share = share;
+    Vue.prototype.$parseHtml = function (str) {
+        if (!str) {
+            return '';
+        }
 
-    Vue.prototype.textToHtml = function (value, obool) {
-        value = Boolean(value) === true ? value : '';
-        value = value.replace(/\\n/g, '</br>').replace(/\n/g, '</br>').replace(/\[:(.+?)\]/g, '');
-        obool ? value : value.replace(/ /g, '&nbsp;');
-        return value;
+        str = str.replace(/\\n/g, '</br>').replace(/\n/g, '</br>').replace(/ /g, '&nbsp;');
+
+        return str;
     };
 };

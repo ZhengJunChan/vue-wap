@@ -69,12 +69,14 @@ export default {
 
             if (this.sureBtn.url) {
                 RouterUtil.go(this.sureBtn.url, this.$router);
+            } else {
+                this.close();
             }
         }
     }
 };
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 @import './main.less';
 </style>

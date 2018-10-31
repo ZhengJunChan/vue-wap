@@ -4,13 +4,11 @@
 
 <script type="text/javascript">
 
-import { RouterUtil } from '@/utils';
-
 export default {
     created() {
-        let returnUrl = decodeURIComponent(this.$route.query.returnUrl);
+        let returnUrl = this.$route.query.returnUrl;
 
-        RouterUtil.go(returnUrl, this.$router);
+        window.location.replace(returnUrl);
     }
 };
 </script>

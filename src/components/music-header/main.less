@@ -1,106 +1,167 @@
 @import './../../less/config.less';
 
 .music_header_component {
-  height: 330/100rem;
+  height: 360/100rem;
   overflow: hidden;
-  color: @white-color; // background-color: @white-color;
-  &.like{
+  position: relative;
+  color: @white-color;
+  .blur_bg{
+      display: block;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+    filter: blur(20px);
+  }
+  &.like {
     height: 257/100rem;
   }
 
-  .content{
+  .content {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
     padding: @padding-30 0;
-    height: 330/100rem;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.95) 40%, #fff 100%);
   }
   .cover_img {
-    width: 220/100rem;
-    height: 220/100rem;
-    // margin-top: @padding-20;
+    width: 300/100rem;
+    height: 300/100rem;
+    border-radius: 12/100rem;
     margin-left: @padding-20;
     background-size: cover;
     background-position: center;
+    .count{
+      height: 100%;
+      width: 100%;
+      color: #fff;
+      padding: 260/100rem 0 0 44/100rem;
+      font-size: @min-font;
+      background: url(./../../imgs/2_5_0/icon_index_erji.png) 10/100rem 269/100rem no-repeat @before-bg-color;
+      background-size: 24/100rem auto;
+    }
+  }
+
+  .title,
+  .icons,
+  .singer_info {
+    position: absolute;
+    left: 350/100rem;
   }
 
   .title {
-    position: absolute; // color: @white-color;
     font-size: @big-font;
-    left: 260/100rem;
     top: 30/100rem;
-    font-weight: bold;
+    font-weight: normal;
+    color: @black-font;
+    display: -webkit-box;
+    padding-right: 20/100rem;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
   }
 
-  .singer_info,
-  .play_btn {
-    position: absolute;
-    left: 260/100rem;
-    top: 170/100rem;
-  }
-
-  .singer_info{
+  .singer_info {
+    top: 168/100rem;
     height: 60/100rem;
     line-height: 60/100rem;
+    &>.fl {
+      padding-top: 6/100rem;
+    }
   }
 
   .play_btn {
-    padding-left: @padding-50;
-    background-size: 36/100rem;
+    position: absolute;
+    top: 258/100rem;
+    right: 10/100rem;
+    width: 100/100rem;
+    height: 100/100rem;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: left center;
+    &.pause {
+      background-image: url(./../../imgs/icons/icon_music_stop.png);
+    }
+    &.play {
+      background-image: url(./../../imgs/icons/icon_music_play.png);
+    }
   }
 
   .singer_name {
+    color: @grey-color;
     display: inline-block;
     max-width: 396/100rem;
-    padding: 0 50/100rem 0 15/100rem;
-    background: url(./../../imgs/common/icon-arrow-left.png) right center no-repeat;
+    padding: 0 30/100rem 0 5/100rem;
+    background: url(./../../imgs/icons/icon_indexjianjie_more.png) right center no-repeat;
     background-size: 12/100rem 22/100rem;
   }
 
   .icons {
-    margin-top: 25/100rem;
+    position: absolute;
+    top: 257/100rem;
+    right: 20/100rem;
+    font-size: 0;
     .item {
-      position: relative;
-      text-align: center;
+      display: inline-block;
+      width: 33.33%;
+      font-size: @min-font;
       &>span {
-        padding-left: @padding-50;
-        background-size: 36/100rem;
+        display: inline-block;
+        width: 90/100rem;
+        padding-top: 40/100rem;
+        text-align: center;
+        color: @grey-color;
+        background-size: auto 36/100rem;
         background-repeat: no-repeat;
-        background-position: left center;
+        background-position: center top;
       }
-      &+.item {
-        // border-left: 1px solid rgba(255, 255, 255, 0.2);;
-        &:before {
-          content: '';
-          position: absolute;
-          left: 0;
-          top: 50%;
-          width: 1px;
-          height: 30/100rem;
-          margin-top: -15/100rem;
-          background-color: rgba(255, 255, 255, 0.2);
-        }
+      &:nth-child(3) {
+        text-align: right;
       }
     }
 
     .disscuss {
-      background-image: url(./../../imgs/common/icon_music_pinlun.png);
+      background-image: url(./../../imgs/icons/icon_music_pinlun.png);
     }
 
     .collect {
-      background-image: url(./../../imgs/common/icon_music_soucang.png);
-    }
-
-    .doughnut {
-      background-image: url(./../../imgs/common/icon_music_tiantianquan.png);
+      background-image: url(./../../imgs/icons/icon_music_soucang.png);
     }
 
     .zan {
-      background-image: url(./../../imgs/common/icon_music_zan.png);
+      background-image: url(./../icon/imgs/icon_chitang_zan_gray.png);
+      &.selected{
+        color: @pink-color;
+        background-image: url(./../icon/imgs/icon_bottomg_zan_pink.png);
+      }
     }
   }
+}
 
-  .play {
-    background-image: url(./../../imgs/common/icon_music_play.png);
+.music_type {
+  display: none;
+}
+
+.music {
+  .music_type {
+    display: inline;
+    padding: 1px 14/100rem;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 8/100rem;
+    font-size: @smallst-font;
+  }
+  .yuanchang {
+    color: #ff7733;
+    border-color: #ffbb99;
+    background-color: #fff7f2;
+  }
+  .fanchang {
+    color: #33bbff;
+    border-color: #99ddff;
+    background-color: #f2fbff;
   }
 }

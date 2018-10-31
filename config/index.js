@@ -23,23 +23,50 @@ module.exports = {
     },
     dev: {
         env: require('./dev.env'),
-        port: 80,
+        port: 3000,
         autoOpenBrowser: true,
         assetsSubDirectory: 'static',
         assetsPublicPath: '/',
         proxyTable: {
         '/v2': {
-          // target: 'http://testapi.yuanyintang.com',
-          // target: 'http://demo.imxkj.com',
-          // target: 'http://yyt.demo.com',
-          target: 'http://wap.demo.com',
-          changeOrigin: true
+          target: 'http://demowap.imxkj.com/', // 外网测试服
+          // target: 'http://wap.demo.com', // 内网
+          // target: 'https://api.yuanyintang.com/', // 线上
+          changeOrigin: true,
+          onProxyRes (proxyRes) {
+            var oldCookie = proxyRes.headers['set-cookie'];
+
+            if(oldCookie == null || oldCookie.length == 0){
+                delete proxyRes.headers['set-cookie'];
+                return;
+            }
+
+            var newCookie = '';
+            var oldCookieItems = oldCookie[0].split(';');
+
+            for (var i=0; i < oldCookieItems.length; ++i) {
+                if (newCookie.length >0) {
+                    newCookie += ';'
+                }
+
+                if (oldCookieItems[i].toLowerCase().indexOf('path=') >= 0) {
+                    newCookie += 'path=/';
+                } else if (oldCookieItems[i].indexOf('domain=') >= 0) {
+                    newCookie += 'domain=';
+                } else{
+                    newCookie += oldCookieItems[i];
+                }
+            }
+
+            proxyRes.headers['set-cookie'] = [newCookie];
+          }
         },
         '/files': {
           target: 'http://api.demo.com',
           // target: 'http://demo.imxkj.com',
           changeOrigin: true
         }
+
       },
         // CSS Sourcemaps off by default because relative paths are "buggy"
         // with this option, according to the CSS-Loader README

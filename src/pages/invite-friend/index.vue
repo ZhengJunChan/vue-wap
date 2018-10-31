@@ -3,7 +3,7 @@
       <!--<img src="./image/bg_yaoqiang@2x.png" class="bg-image">-->
       <div class="all-content">
         <div class="user-content">
-          <div class="head" :style="info.head_link ? {'background-image':`url(${info.head_link+'/70/70'})`} :{}">
+          <div class="head" :style="info.head_info.link ? {'background-image':`url(${$fixImg(info.head_info.link+'/70/70')})`} :{}">
 
           </div>
           <p class="name" v-text="info.nickname">CindyLim</p>

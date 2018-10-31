@@ -1,0 +1,4 @@
+.activity_page>div{
+	height:100%;
+	overflow: auto;
+}

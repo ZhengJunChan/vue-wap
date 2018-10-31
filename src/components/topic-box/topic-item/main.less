@@ -1,63 +1,32 @@
 @import './../../../less/config.less';
 
 .topic_item_component {
-  padding: @padding-30 @padding-20;
-  .title {
-    font-weight: normal;
-    font-size: @small-font;
-    line-height: 38/100rem;
+  color: #1a1a1a;
+  padding: @padding-30;
+  .content {
+    margin-top: @margin-20;
+    /*设置display，将对象作为弹性伸缩盒子模型显示*/
+    display: -webkit-box;
+    /*限制在一个块元素显示的文本的行数*/
+    -webkit-line-clamp: 8;
+    /*规定框的子元素应该被水平或垂直排列*/
+    -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-  }
-
-  .author_info {
-    position: relative;
-    height: 50/100rem;
-    line-height: 50/100rem;
-    margin-top: @margin-30;
-    color: @singer-name;
-    .read_counts {
-      position: absolute;
-      right: 0;
-      top: 0;
-      padding-left: 40/100rem;
-      font-size: @smallst-font;
-      background: url(./../../../imgs/common/icon_index_read.png) left center/auto 21/100rem no-repeat;
-    }
-  }
-
-  .content {
-    .author_info {
-      display: none;
-      margin-top: 0;
-      .author {
-        padding-right: 0;
-      }
-    }
-  }
-
-  .author {
-    padding-right: 160/100rem;
-    &>span {
-      padding-left: @padding-10;
-      font-size: @smaller-font;
-    }
-  }
-
-  .tag_list {
-    margin-top: @margin-20;
   }
 
   .img_box {
-    margin-top: @margin-30;
-    &>img {
-      width: 230/100rem;
-      height: 230/100rem;
-      +img {
-        margin-left: @margin-10;
+    margin-top: @margin-20;
+    font-size: 0;
+    .img {
+      width: 32.5%;
+      padding-top: 32.5%;
+      display: inline-block;
+      border-radius: @box-radius;
+      background-size: cover;
+      background-position: center;
+      &+.img {
+        margin-left: 1.25%;
       }
     }
     .more_tip {
@@ -67,53 +36,53 @@
       position: relative;
       .more_tip {
         display: block;
-        padding-top: 70/100rem;
         position: absolute;
-        width: 230/100rem;
-        height: 230/100rem;
         color: #fff;
-        top: 0;
-        right: 0;
-        text-align: center;
-        font-size: @small-font;
-        line-height: 50/100rem;
-        background-color: @before-bg-color;
+        bottom: 10/100rem;
+        right: 10/100rem;
+        font-size: @smallst-font;
+        border-radius: 4/100rem;
+        padding: 0 10/100rem 0 43/100rem;
+        background: url(./../../../imgs/2_5_0/icon_picture_more@2x.png) 12/100rem center no-repeat @before-bg-color;
+        background-size: 24/100rem auto;
+      }
+    }
+    &.img1 {
+      .img {
+        width: 82%;
+        padding-top: 62%;
+      }
+    }
+    &.img2 {
+      .img {
+        width: 49.375%;
+        padding-top: 49.375%;
+        &+.img {
+          margin-left: 1.25%;
+        }
       }
     }
   }
 
-  &.one_img {
-    position: relative;
-    min-height: 310/100rem;
-    padding-right: 270/100rem !important;
-
-    .author_info {
-      display: none;
-    }
-
-    .content {
-      .author_info {
-        display: block;
-        position: absolute;
-        bottom: @padding-40;
-        left: @padding-30;
-        right: 430/100rem;
-      }
-
-      .read_counts {
-        right: -160/100rem;
-      }
-    }
-
-    .img_box {
-      position: absolute;
-      right: @padding-20;
-      top: @padding-40;
-      margin-top: 0;
-    }
+  .music_label{
+    margin-top: @margin-30;
   }
 
-  &.more_img {
-    // position: relative;
+  .location{
+    margin-top: 24/100rem;
+  }
+
+  .icon_label{
+    text-align: right;
+    margin-top: @margin-30;
+
+    .icon{
+      text-align: left;
+      width: 150/100rem;
+      font-size: @smallst-font;
+      &+.icon{
+        margin-left: 90/100rem;
+      }
+    }
   }
 }

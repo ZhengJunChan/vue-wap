@@ -1,40 +1,27 @@
 @import './../../less/config.less';
 
 .cell_component {
+  margin: 40/100rem 0 30/100rem;
   position: relative;
-  height: 100/100rem;
-  overflow: hidden;
-  width: 100%;
-  &>* {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-  }
+  display: inline-block;
   .title {
+    position: relative;
     font-size: @big-font;
     color: @title-color;
-    left: 0;
-    //padding-left: 75/100rem;
-    padding-left: 0.85rem;
-    // background-size: contain;
+    padding-right: 8/100rem;
     background-size: 43/100rem 43/100rem;
-    background-position: @padding-20 center;
+    background-position: left center;
     background-repeat: no-repeat;
+    z-index: 1;
   }
 
-  .link_arrow_tags {
-    height: 100%;
+  .bg {
+    position: absolute;
     right: 0;
-    height: 100%;
-    padding: @padding-20;
-    &>img{
-      width: 14/100rem;
-      height: 25/100rem;
-      vertical-align: middle;
-    }
+    bottom: 3px;
+    width: 76%;
+    max-width: 88/100rem;
+    height: 13/100rem;
+    background-color: #ffd9e6;
   }
 }

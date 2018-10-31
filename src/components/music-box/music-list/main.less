@@ -1,17 +1,14 @@
 @import './../../../less/config.less';
 
 .music_list_component{
-	.scroller_label{
-		position: relative;
-		width: 1210/100rem;
-		padding: 0 10/100rem;
-		.item{
-			&+.item{
-				margin-left: 10/100rem;
-			}
+	.detail{
+		padding: @padding-30 0 0 @padding-30;
+		border-top: 1px solid #ebebeb;
+		background-color: #fff;
+		.item:first-child{
+			padding-top: 0;
 		}
 	}
-
 	.list{
 		.item{
 			margin-left: 10/100rem;
@@ -25,8 +22,9 @@
 		}
 	}
 
-	.detail{
-		// padding-left: @padding-20;
-		//border-bottom: 1px solid @split-border-color;
+	.grey{
+		.item+.item{
+			margin-top: @margin-20;
+		}
 	}
 }

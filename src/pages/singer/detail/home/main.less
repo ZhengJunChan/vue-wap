@@ -2,51 +2,68 @@
 
 .home_page {
   background: @grey-bg-color;
-  .body {
-    &>div {
-      margin-top: @margin-10;
-      background: @content-bg-color;
-      padding: @padding-30 @padding-20;
+}
 
-      &:first-child {
-        margin-top: 0;
-      }
-    }
+.box{
+  background-color: #fff;
+  margin-top: @margin-20;
+  padding: @padding-30;
+  &:first-child{
+    margin-top: 0;
   }
+  .title{
+    color: #616366;
+    font-weight: normal;
+    font-size: @smallst-font;
+    margin-bottom: @margin-20;
+  }
+  &.tag_box{
+    padding-bottom: @padding-20;
+  }
+}
 
-  .intro {
-    color: @grey-color;
-    font-size: @smaller-font;
-    .desc {
-      line-height: 46/100rem;
-    }
-
-    &>ul {
-      li {
-        position: relative;
-        margin-top: 25/100rem;
-      }
-
-      .title {
+.base_info{
+  .label{
+    margin-top: @margin-10;
+  }
+  .item{
+    min-width: 240/100rem;
+    display: inline-block;
+    &:first-child{
+      position: relative;
+      margin-right: @margin-30;
+      &:after{
+        content: "";
+        display: block;
+        width: 1px;
+        height: 24/100rem;
         position: absolute;
-        left: 0;
-      }
-
-      .text {
-        padding-left: 180/100rem;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        background-color: #e6e6e6;
       }
     }
+    &>p{
+      display: inline-block;
+    }
   }
+  .prototype{
+    color: #616366;
+    width: 105/100rem;
+  }
+}
 
-  .dynamics{
-  	margin-top: -40/100rem;
-    // padding-bottom: @padding-20;
-  }
-
-  .more{
-    padding-bottom: @padding-30;
-  }
-  .wei_bo_img{
-    width: 36/100rem;
+.tag_list{
+  .tag{
+    color: @title-color;
+    display: inline-block;
+    padding: 0 25/100rem;
+    height: 52/100rem;
+    line-height: 52/100rem;
+    border-radius: 26/100rem;
+    font-size: @smallst-font;
+    background-color: #f3f5f6;
+    margin: 0 @margin-20 @margin-20 0;
   }
 }

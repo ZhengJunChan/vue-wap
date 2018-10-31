@@ -1,0 +1,98 @@
+@import './../../../less/config.less';
+
+.message_board_alert_component {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: #332e2e;
+  z-index: 999;
+  background-color: #f8f8f8;
+
+  .close_btn {
+    position: absolute;
+    right: 10/100rem;
+    top: 10/100rem;
+    width: 68/100rem;
+    padding: 20/100rem;
+
+    &>img {
+      width: 100%;
+    }
+  }
+
+  &>div {
+    background-color: #fff;
+  }
+
+  .input_box {
+    padding: 60/100rem 30/100rem 30/100rem;
+  }
+
+  .title {
+    font-weight: normal;
+    font-size: @normal-font;
+    margin-bottom: 50/100rem;
+  }
+
+  textarea {
+    resize: none;
+    width: 100%;
+    height: 294/100rem;
+    line-height: 40/100rem;
+    font-size: @small-font;
+  }
+
+  .count_tip {
+    color: #9da6a4;
+    text-align: right;
+  }
+
+  .share_label {
+    background-color: transparent;
+    padding: 30/100rem;
+
+    .share_btn {
+      color: #999;
+      text-align: center;
+      display: inline-block;
+      width: 36/100rem;
+      height: 36/100rem;
+      font-size: 28/100rem;
+      line-height: 36/100rem;
+      background-color: #ffffff;
+      border-radius: 6/100rem;
+      border: solid 1px #b2b2b2;
+      margin-right: 20/100rem;
+      vertical-align: text-bottom;
+      background-size: 100% 100%;
+
+      .iconfont {
+        color: #fff;
+      }
+    }
+  }
+
+  .submit_btn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 120/100rem;
+    padding: 20/100rem 30/100rem;
+
+    &>div {
+      height: 100%;
+      color: #9da6a4;
+      text-align: center;
+      line-height: 76/100rem;
+      border-radius: 10/100rem;
+    }
+
+    .valid {
+      color: #fff;
+      background-color: #ff4c55;
+    }
+  }
+}

@@ -1,5 +1,7 @@
 import { BrowserUtil } from '@/utils';
+import callAppFunction from '@/configs/registGlobal/callAppFunction.js';
 
+let isFormApp = BrowserUtil.isFormApp();
 let audio = document.getElementById('audio');
 
 export default {
@@ -15,20 +17,14 @@ export default {
                 song_id: 0  // 歌曲所在歌单
             },
             // 正在播放的列表
-            playList: []
+            playList: [],
+            currentTime: 0 // 歌曲正在播放的时间
         };
 
         audio.setAttribute('src', '');
-    },
-    /**
-     * [pause 暂停歌曲]
-     * @Author   郑君婵
-     * @DateTime 2017-10-14
-     */
-    pause(state) {
-        state.playing.song.pause = true;
-
-        audio.pause();
+        audio.addEventListener('timeupdate', function () {
+            state.playing.currentTime = parseInt(this.currentTime);
+        });
     },
     /**
      * [pause 播放歌曲]
@@ -38,7 +34,27 @@ export default {
     play(state) {
         state.playing.song.pause = false;
 
-        audio.play();
+        if (isFormApp) {
+            callAppFunction('playMusic', {
+                songID: state.playing.song.id // 音乐id
+            });
+        } else {
+            audio.play();
+        }
+    },
+    /**
+     * [pause 播放歌曲]
+     * @Author   郑君婵
+     * @DateTime 2017-10-14
+     */
+    pause(state) {
+        state.playing.song.pause = true;
+
+        if (isFormApp) {
+            callAppFunction('playOrpause', {'status': 'pause'});
+        } else {
+            audio.pause();
+        }
     },
     /**
      * [updataMusicInfo 更新播放歌曲信息]
@@ -49,9 +65,9 @@ export default {
         state.playing.song.pause = false;
         state.playing.song.id = song.id;
         state.playing.song.song_id = song.song_id;
-        state.playing.song.video_link = song.video_link;
+        state.playing.song.video_link = song.video_info ? song.video_info.link : song.video_link;
 
-        audio.setAttribute('src', song.video_link);
+        audio.setAttribute('src', state.playing.song.video_link);
     },
     updataPlayList(state, sheet) {
         state.playList = sheet;

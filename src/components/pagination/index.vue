@@ -1,6 +1,6 @@
 <!-- [pagination_component]   @Author: 郑君婵   @DateTime: 2017-07-03 -->
 <template>
-<nav class="pagination_component">
+<nav class="pagination_component" :class="config.itemColor">
     <ul class="pagination" v-if="pagination.pageCount > 1" :class="sizeClass">
         <!--<li v-if="showPrevious()" :class="{ 'disabled' : pagination.currentPage <= 1 }">-->
             <!--<span v-if="pagination.currentPage <= 1">-->
@@ -39,7 +39,8 @@
 </nav>
 </template>
 
-<script>
+<script type="text/javascript">
+
 export default {
     props: {
         pagination: {
@@ -86,6 +87,7 @@ export default {
                     x: 0,
                     y: 0
                 },
+                itemColor: '',
                 alwaysShowPrevNext: false
             }, this.options);
         },
@@ -131,6 +133,7 @@ export default {
             if (!this.scrollTo) {
                 window.scrollTo(0, 0);
             }
+
             if (this.config.isScroll) {
                 window.scrollTo(this.config.scroll.x, this.config.scroll.y);
             }

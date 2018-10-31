@@ -1,0 +1,25 @@
+@import './../../../less/config.less';
+
+.topic_page {
+  background-color: #f2f4f5;
+}
+
+.navs{
+	&>li{
+		height: 80/100rem;
+		line-height: 80/100rem;
+		display: inline-block;
+		margin-left: 56/100rem;
+		font-size: @smaller-font;
+		color: @grey-title-color;
+		&:last-child{
+			margin-right: 56/100rem;
+		}
+	}
+
+	.selected{
+		color: @title-color;
+		background: url(./../../../imgs/2_5_0/icon_chitang_switch.png) center bottom no-repeat;
+		background-size: 50/100rem auto;
+	}
+}

@@ -1,0 +1,185 @@
+.prize_page {
+  height: 100%;
+  padding: 50/100rem 0;
+  text-align: center;
+  position: relative;
+  background-color: #ebfdff;
+  .panel {
+    width: 690/100rem;
+    margin: 0 auto;
+  }
+  .border_img {
+    width: 100%;
+  }
+
+  .content {
+    background: url(./../../img/rule/img_frame_middle@2x.png) left top no-repeat;
+    background-size: 100% 100%;
+  }
+
+  .luck_draw {
+    padding: 290/100rem 0;
+    position: relative;
+    margin-top: -7px;
+    line-height: 50/100rem;
+    .btn {
+      color: #14cdde;
+      width: 174/100rem;
+      height: 174/100rem;
+      text-align: center;
+      display: inline-block;
+      padding-top: 40/100rem;
+      text-shadow: #fff 0 2px 4px;
+      background: url(./../../img/rule/btn_chouiang_not_clicking.png) left top;
+      background-size: 100% 100%;
+
+      &.active {
+        background-image: url(./../../img/rule/btn_chouiang_default.png);
+      }
+      .chou {
+        font-size: 50/100rem;
+      }
+
+      .counts {
+        font-size: 30/100rem;
+      }
+    }
+
+    .item {
+      position: absolute;
+      .img_box {
+        width: 164/100rem;
+        height: 204/100rem;
+        margin: 0 auto;
+        background-size: auto 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      &>p {
+        margin-top: 10/100rem;
+      }
+      &.active{
+        .img_box {
+          position: relative;
+          &:before{
+            position: absolute;
+            content: "";
+            display: block;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background: url(./../../img/img_mengban@2x.png) center no-repeat;
+            background-size: auto 100%;
+          }
+        }
+      }
+    }
+    .item1 {
+      margin-top: -374/100rem;
+    }
+    .item1,
+    .item4 {
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .item4 {
+      margin-top: 120/100rem
+    }
+    .item2,
+    .item3 {
+      right: 37/100rem;
+    }
+    .item5,
+    .item6 {
+      left: 37/100rem;
+    }
+    .item2,
+    .item6,
+    .item5,
+    .item3 {
+      top: 50%;
+    }
+    .item2,
+    .item6 {
+      margin-top: -270/100rem;
+    }
+    .item5,
+    .item3 {
+      margin-top: 30/100rem;
+    }
+  }
+
+  .btn_label {
+    margin-top: 86/100rem;
+    .btn {
+      color: #fff;
+      width: 240/100rem;
+      height: 80/100rem;
+      font-size: 28/100rem;
+      display: inline-block;
+      line-height: 80/100rem;
+      border-radius: 10/100rem;
+      &+.btn {
+        margin-left: 50/100rem;
+      }
+      &:first-child {
+        background-color: #ff6ea1;
+      }
+      &:last-child {
+        background-color: #00bbcc;
+      }
+    }
+  }
+
+
+
+
+  .contentt {
+    text-align: center;
+    padding: 20/100rem;
+  }
+
+  .title_img {
+    width: 100%;
+  }
+
+  .choujiang_desc {
+    text-align: center;
+    margin: 34/100rem 0;
+    img {
+      width: 526/100rem;
+    }
+  }
+
+  .btn_label {
+    margin-top: 50/100rem;
+    .btn+.btn {
+      margin-left: 30/100rem;
+    }
+  }
+
+  .notice_box {
+    color: #ff6666;
+    width: 620/100rem;
+    margin: 40/100rem auto 0;
+    padding: 20/100rem;
+    background-color: #ffe5eb;
+    font-size: 24/100rem;
+    height: 110/100rem;
+    overflow: hidden;
+  }
+  .ios_intro {
+    width: 100%;
+    color: #616665;
+    text-align: center;
+    font-size: 24/100rem;
+    position: absolute;
+    bottom: 30/100rem;
+  }
+}

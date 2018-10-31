@@ -3,7 +3,7 @@
   <div class="topic_page">
   	<topic-list :list="topics" style-class="split_line" :max-num="page.perPage"></topic-list>
 
-    <more-btn text="查看全部池塘" v-if="page.totalCount > page.perPage"></more-btn>
+    <more-btn class="more_btn" text="查看全部池塘" v-if="page.totalCount > page.perPage"></more-btn>
 
     <empty-tip class="empty_box" v-if="initSingerTopics && !topics.length">
         <p>TA还没有池塘呢</p>

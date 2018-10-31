@@ -1,0 +1,111 @@
+.prize_page {
+  background: url(./../../imgs/bg.png) left top/57/100rem;
+
+  .content {
+    text-align: center;
+    padding: 20/100rem;
+  }
+
+  .title_img {
+    width: 100%;
+  }
+
+  .choujiang_desc {
+    text-align: center;
+    margin: 34/100rem 0;
+    img {
+      width: 526/100rem;
+    }
+  }
+
+  .pannel {
+    width: 620/100rem;
+    height: 570/100rem;
+    padding: 27/100rem;
+    margin: 0 auto;
+    background: url(./../../imgs/bg_spring_zhuanpan.png) left top/100% 100% no-repeat;
+  }
+
+  .luck_draw {
+    width: 562/100rem;
+    height: 480/100rem;
+    .item {
+      width: 180/100rem;
+      height: 150/100rem;
+      font-size: 15/100rem;
+      position: relative;
+      &.active::after {
+        content: "";
+        display: block;
+        width: 99%;
+        height: 100%;
+        position: absolute;
+        z-index: 1;
+        top: -1px;
+        background-color: rgba(0, 0, 0, 0.2);
+      }
+    }
+    .img_box {
+      img {
+        max-width: 105/100rem;
+        max-height: 88/100rem;
+      }
+    }
+
+    .run_btn {
+      text-align: center;
+      background: url(./../../imgs/btn_spring_zhuanpan2.png) left top/100% 100% no-repeat;
+      .chou {
+        display: none;
+      }
+      &>img {
+        width: 40/100rem;
+      }
+      &:active {
+        background-image: url(./../../imgs/btn_spring_zhuanpan.png);
+        .chou {
+          display: inline-block;
+        }
+        .pre {
+          display: none;
+        }
+        .count_tip {
+          color: #23c6ab;
+        }
+      }
+
+      .count_tip {
+        color: #ff4c88;
+      }
+    }
+  }
+
+  .btn_label {
+    margin-top: 50/100rem;
+    .btn+.btn {
+      margin-left: 30/100rem;
+    }
+  }
+
+  .notice_box {
+    color: #ff6666;
+    width: 620/100rem;
+    margin: 40/100rem auto 0;
+    padding: 20/100rem;
+    background-color: #ffe5eb;
+    font-size: 24/100rem;
+    height: 110/100rem;
+    overflow: hidden;
+  }
+
+  .bottom {
+    font-size: 24/100rem;
+    color: #616665;
+    margin-top: 24/100rem;
+  }
+  .ios_intro{
+    color: #616665;
+    text-align: center;
+    font-size: 24/100rem;
+  }
+}

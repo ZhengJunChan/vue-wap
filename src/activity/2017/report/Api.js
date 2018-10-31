@@ -17,6 +17,6 @@ export default {
         return ApiUtil.get(`${v}/musician/annual`, {uid: Boolean(id) === true ? id : 0});
     },
     followAllUser: function (id = '') {
-        return ApiUtil.post(`${v}/member/relation/followAll`, {ids: id});
+        return ApiUtil.post(`${v}/member.relation/followall`, {ids: id});
     }
 };

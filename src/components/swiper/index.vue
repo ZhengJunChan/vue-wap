@@ -2,7 +2,7 @@
 
 <template>
   <div class="swiper_component" @click="addClickCount">
-    <swiper v-model="index" :list="imgList" auto height="3.5rem" dots-class="custom-bottom" dots-position="center"></swiper>
+    <swiper v-model="index" :list="imgList" auto height="3rem" dots-class="custom-bottom" dots-position="right"></swiper>
   </div>
 </template>
 
@@ -30,7 +30,7 @@ export default {
 
             for (; index < this.list.length; index++) {
                 imgList.push({
-                    img: this.list[index].imgpic_link + '/750/350'
+                    img: this.$fixImg(this.list[index].imgpic_info.link, 'w=710&h=300')
                 });
             }
 

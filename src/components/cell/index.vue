@@ -1,26 +1,16 @@
 <!-- [cell_component]   @Author: 郑君婵   @DateTime: 2017-09-27 -->
 <template>
     <div class="cell_component">
-        <div class="title" v-text="title" :style="{backgroundImage: `url(${icon})`}">热门</div>
-
-        <div class="link_arrow_tags" @click="getDownloadPage()">
-            <img @click="gotoHotTags('/topic/hot-tags')" src="./imgs/icon_index_more.png"/>
-        </div>
+        <div class="title" v-text="title" :style="{backgroundImage: `url(${icon})`, paddingLeft: icon ? '0.7rem' : 0}"></div>
+        <div class="bg"></div>
     </div>
 </template>
 
 <script type="text/javascript">
-import { RouterUtil } from '@/utils';
-
 export default {
     props: {
         title: String,
         icon: String
-    },
-    methods: {
-        getDownloadPage() {
-            RouterUtil.getDownloadPage(this.router);
-        }
     }
 };
 </script>

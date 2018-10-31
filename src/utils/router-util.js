@@ -33,6 +33,15 @@ export default {
             window.location.href = url;
         }
     },
+    replace(url, $router) {
+        const useRouter = typeof url === 'object' || ($router && typeof url === 'string' && !/http/.test(url));
+
+        if (useRouter) {
+            $router.replace(url);
+        } else {
+            window.location.replace(url);
+        }
+    },
     goBack(_this, params, isRefresh) {
         if (BrowserUtil.isFromAndroidApp()) {
             isRefresh && _this.callAppFunction('goBackPage');
@@ -105,38 +114,44 @@ export default {
     getPreviousLoginPage() {
         return window.localStorage.getItem(sessionKey.previousLoginPage);
     },
-    download: function ($router, $route) {
-        // 不可打开app中的活动页
-        // let url = 'yyt://';
-
-        // if ($route.name) {
-        //     url += `?type=${$route.name}`;
-        // }
-
-        // if ($route.params.id) {
-        //     url += `&id=${$route.params.id}`;
-        // } else if ($route.query.id) {
-        //     url += `&id=${$route.query.id}`;
-        // }
-
-        // 可打开app中的活动页
-
+    download: function ($router, link) {
         let url = 'yyt://';
+        let $route = $router.currentRoute;
 
         if (BrowserUtil.isFormAndroid()) {
             url += 'host/pathPrefix';
         }
 
         if ($route.meta.pageType) {
-            url += `?type=${$route.meta.pageType}&url=${window.location.href}`;
+            url += `?yytType=${$route.meta.pageType}&url=${link || window.location.href}`;
         } else {
-            url += `?type=page&url=${$route.name}`;
+            url += `?yytType=page&url=${$route.name}`;
         }
 
-        if ($route.params.id) {
-            url += `&id=${$route.params.id}`;
-        } else if ($route.query.id) {
-            url += `&id=${$route.query.id}`;
+        if (!link) {
+            if ($route.params.id) {
+                url += `&id=${$route.params.id}`;
+            } else if ($route.query.id) {
+                url += `&id=${$route.query.id}`;
+            }
+
+            if ($route.meta.appParams) {
+                let key = '';
+
+                for (key in $route.meta.appParams) {
+                    url += `&${key}=${$route.meta.appParams[key]}`;
+                }
+            }
+        }
+
+        let appParams = $route.meta.appParams;
+
+        if (appParams) {
+            let key = '';
+
+            for (key in appParams) {
+                url += `&${key}=${appParams[key]}`;
+            }
         }
 
         window.location.href = url;

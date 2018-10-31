@@ -14,13 +14,15 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    border-radius: @box-radius 0 0 @box-radius;
   }
 
   .info {
     position: relative;
     margin-left: 64/100rem;
-    font-size: @smaller-font;
+    font-size: @min-font;
     height: 100%;
+    border-radius: @box-radius;
     background: rgba(245, 245, 245, 1);
     padding: 22 /100rem 20/100rem 0 84/100rem;
   }
@@ -38,7 +40,8 @@
 
   .title {
     color: @black-font;
-    font-size: @small-font;
+    font-size: @smaller-font;
+    padding-left: 10/100rem;
   }
 
   .desc {
@@ -55,14 +58,14 @@
     top: 0;
     height: 100%;
     width: 82/100rem;
-    line-height: 1.5rem;
+    line-height: 1.28rem;
     img{
-      width: 42/100rem;
-      height: 42/100rem;
+      width: 50/100rem;
+      height: 50/100rem;
+      vertical-align: middle;
     }
   }
 
-  &.song,
   &.music {
     .info {
       padding-right: 82/100rem;
@@ -70,12 +73,6 @@
 
     .play_btn {
       display: inline-block;
-    }
-  }
-
-  &.song {
-    .cover {
-      border-radius: 50%;
     }
   }
   &.no_cover {

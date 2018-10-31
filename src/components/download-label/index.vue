@@ -1,13 +1,6 @@
 <template>
   <div class="download_component">
-  	<img class="logo" src="./imgs/logo.png">
-
-  	<div class="text">
-	    <p class="pro">源音塘</p>
-	    <p class="pro_desc">音乐不止一种</p>
-  	</div>
-
-  	<div class="download_btn" @click="download">立即打开</div>
+  	<div class="download_btn" @click="download" v-text="btnName"></div>
   </div>
 </template>
 
@@ -23,9 +16,16 @@ export default {
         vip: [Boolean, Number],
         headerId: [Boolean, Number]
     },
+    computed: {
+        btnName() {
+            // return this.$route.meta.downloadLabelName || '退出登录';
+            return this.$route.meta.downloadLabelName || '打开APP';
+        }
+    },
     methods: {
         download() {
-            RouterUtil.download(this.$router, this.$route);
+            // this.$store.dispatch('logout');
+            RouterUtil.download(this.$router);
         }
     }
 };

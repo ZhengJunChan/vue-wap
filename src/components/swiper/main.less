@@ -1,8 +1,11 @@
 .swiper_component {
   .vux-slider {
     &>.vux-swiper {
+      border-radius: 20/100rem;
       &>.vux-swiper-item {
         &>a {
+          border-radius: 0.2rem;
+          overflow: hidden;
           &>.vux-swiper-desc {
             display: none;
           }
@@ -12,15 +15,25 @@
 
     &>.vux-indicator,
     .vux-indicator-right {
-    	bottom: 0;
-      &>a>.vux-icon-dot {
-      	width: 6/100rem;
-      	height: 6/100rem;
-      	border-radius: 3/100rem;
-        background-color: rgba(255, 255, 255, 0.4);
-        &.active{
-        	width: 14/100rem;
-        	background-color: #fff;
+      right: 20/100rem;
+      bottom: 10/100rem;
+      border-radius: 12/100rem;
+      background-color: rgba(0, 0, 0, 0.35);
+      &>a {
+        height: 24/100rem;
+        margin-left: 10/100rem;
+        line-height: 18/100rem;
+        &:last-child{
+          margin-right: 10/100rem;
+        }
+        &>.vux-icon-dot {
+          width: 12/100rem;
+          height: 12/100rem;
+          border-radius: 50%;
+          background-color: #fff;
+          &.active {
+            background-color: #ff6699;
+          }
         }
       }
     }

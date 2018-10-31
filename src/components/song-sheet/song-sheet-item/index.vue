@@ -3,28 +3,22 @@
 <template>
   <div class="song_sheet_item_component" :class="type">
   	<div class="cover_img_box" @click="goSheetDtail()">
-  		<div class="cover_img" :style="{backgroundImage: `url(${info.imgpic_link}/230/230)`}"></div>
-
-  		<img class="ctrl_btn play_btn" :src="playing ? icons.puase.big : icons.play.big" @click.stop="play()">
-
-        <img class="ctrl_btn like_icon" :src="icons.heart.big">
-
-  		<p class="sheet_counts">
-  			<span v-text="formatNumber(info.counts)"></span>
-  		</p>
+  		<div  class="cover_img" :style="{backgroundImage: `url(${$fixImg(info.imgpic_info.link, 'w=190&h=190')})`}">
+      		<p class="sheet_counts">
+      			<span v-text="info.counts_text"></span>
+      		</p>
+            <img class="ctrl_btn like_icon" :src="icons.heart.big">
+        </div>
     </div>
 
-	<p class="sheet_name">
-		<span v-text="type === 'like' ? info.nickname+'喜欢的歌曲' : info.title" @click="goSheetDtail()"></span>
-	</p>
+	<p class="sheet_name" v-text="type === 'like' ? info.nickname+'喜欢的歌曲' : info.title" @click="goSheetDtail()"></p>
   </div>
 </template>
 
 <script type="text/javascript">
-import { mapState } from 'vuex';
+// import { mapState } from 'vuex';
 import icons from './../icon.js';
 import { RouterUtil } from '@/utils';
-import { formatNumber } from '@/filters';
 import SongSheetApi from './../song-sheet-api.js';
 
 export default {
@@ -32,7 +26,7 @@ export default {
         info: Object,
         type: {
             type: String,
-            default: 'list'  // list/scroller
+            default: 'list'  // list、like
         }
     },
     data() {
@@ -40,16 +34,16 @@ export default {
             icons
         };
     },
-    computed: {
-        ...mapState({
-            playingId: state => !state.player.playing.song.pause && state.player.playing.song.song_id
-        }),
-        playing() {
-            return this.playingId === this.info.id;
-        }
-    },
+    // computed: {
+    //     ...mapState({
+    //         playingId: state => !state.player.playing.song.pause && state.player.playing.song.song_id
+    //     }),
+    //     playing() {
+    //         return this.playingId === this.info.id;
+    //     }
+    // },
     mounted() {
-        this.getMusicList();
+        // this.getMusicList();
     },
     methods: {
         getMusicList() {
@@ -68,19 +62,22 @@ export default {
                 this.$toast.error(error.msg || '获取数据失败');
             });
         },
-        play(id) {
-            let params = {
-                songSheet: this.info.music,
-                addPlayCount: this.addPlayCount
-            };
+        // play(id) {
+        //     let params = {
+        //         songSheet: this.info.music,
+        //         addPlayCount: this.addPlayCount
+        //     };
 
-            this.$store.dispatch('playSongSheet', params);
-        },
-        addPlayCount() {
-            this.info.counts++;
-        },
+        //     this.$store.dispatch('playSongSheet', params);
+        // },
+        // addPlayCount() {
+        //     this.info.counts++;
+        // },
         goSheetDtail() {
-            if (this.type === 'like') {
+            if (this.info.show_type === 1) {
+                // 新歌速递
+                this.go('/recommends?type=new-song');
+            } else if (this.type === 'like') {
                 this.go(`/singer/${this.info.uid}/sheet`);
             } else {
                 this.go(`/mlist/${this.info.id}`);
@@ -88,8 +85,7 @@ export default {
         },
         go(link) {
             RouterUtil.go(link, this.$router);
-        },
-        formatNumber
+        }
     }
 };
 </script>

@@ -34,7 +34,7 @@ export default {
     vote(params, activityId) {
         params.alias = activityId;
 
-        return ApiUtil.get('/v2/api/activity/vote', params);
+        return ApiUtil.get('/v2/api/member.activity/newvote', params);
     },
     /**
      * [getMusicList 获取参赛作品]
@@ -53,5 +53,13 @@ export default {
      */
     getFrendlyLink(activityId) {
         return ApiUtil.get('/v2/api/activity/getLink/' + activityId);
+    },
+    /**
+     * [shareItem 分享作品]
+     * @Author   郑君婵
+     * @DateTime 2017-08-31
+     */
+    shareItem(activityId, params) {
+        return ApiUtil.get(`/v2/api/activity.${activityId}/share`, params);
     }
 };

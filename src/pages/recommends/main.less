@@ -1,0 +1,81 @@
+@import './../../less/config.less';
+
+.header {
+  position: relative;
+  height: 254/100rem;
+  text-align: center;
+  overflow: hidden;
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    z-index: 2;
+    background-color: @before-bg-color;
+  }
+
+  .text {
+    color: #fff;
+    position: absolute;
+    white-space: nowrap;
+    bottom: 70/100rem;
+    left: 50%;
+    z-index: 3;
+    transform: translateX(-50%);
+  }
+}
+
+.today {
+  background: url(./../../imgs/2_5_0/bg_new_song@2x.png) center no-repeat;
+  background-size: cover;
+  padding: 70/100rem 0;
+  &:before {
+    content: "";
+    width: 110%;
+    height: 130%;
+    position: absolute;
+    left: -32px;
+    top: -10px;
+    background: inherit;
+    filter: blur(10px);
+    z-index: 1;
+  }
+
+
+  .text {
+    display: inline-block;
+    padding: @padding-20 0 0 146/100rem;
+    background: url(./../../imgs/2_5_0/img_tianqi@2x.png) left top no-repeat;
+    background-size: 108/100rem auto;
+    .month {
+      font-style: italic;
+      position: absolute;
+      left: 10%;
+      top: 6%;
+      font-size: 50/100rem;
+    }
+    .piont {
+      font-size: @normal-font;
+    }
+  }
+}
+
+.new_song {
+  background: url(./../../imgs/2_5_0/bg_new_song@2x.png) center no-repeat;
+  background-size: cover;
+
+  .text {
+    width: 100%;
+  }
+}
+
+.title {
+  color: #616366;
+  height: 60/100rem;
+  line-height: 60/100rem;
+  font-size: @smallst-font;
+  padding-left: @padding-30;
+  background-color: #f5f7fa;
+}

@@ -2,11 +2,19 @@
 
 <template>
   <div class="discuss_item_component">
-    <header-img class="user_header" :size="70" :header-img="info.head_link" :header-id="info.uid" :vip="info.member_type==2"></header-img>
+    <header-img class="user_header" :size="70" :header-img="info.head_info && info.head_info.link" :header-id="info.uid" :vip="info.is_music == 3"></header-img>
 
     <div class="body">
-      <p :class="info.sex ? 'boy' : 'girl'" v-html="info.nickname" @click="goMusicianDetail(info.uid)"></p>
-      <p class="time_desc" v-text="info.create_time"></p>
+        <div class="name_label">
+            <p class="text_nowrap_ellipsis" :class="info.sex ? 'boy' : 'girl'" v-html="info.nickname" @click="goMusicianDetail(info.uid)"></p>
+            <div>
+                <icon-zan class="zan icon" :id="info.id" :type="type" v-model="info.agrees" :selected="!!info.is_agree" />
+                <icon-discuss class="icon" :count="info.thcount_text" />
+            </div>
+        </div>
+      <p class="time_desc">
+          <span>{{info.create_time}}</span> | <span>#{{info.floor}}</span>
+      </p>
 
       <p class="text" :class="!isShowMore && 'shou_suo'" v-html="info.content" ref="content"></p>
 
@@ -14,9 +22,9 @@
           <span @click="getDownloadPage">全部</span>
       </p>
 
-      <scroller lock-y :scrollbar-x="false" ref="imgBoxScoller" class="scroller" v-if="info.imglist_link">
+      <scroller lock-y :scrollbar-x="false" ref="imgBoxScoller" class="scroller" v-if="info.imglist_info">
         <div class="scroller_label clear_float" :style="{width: scrollerWidth}">
-          <div class="img_item fl" v-for="img in info.imglist_link" :style="{backgroundImage: `url(${img}/110/110)`}"></div>
+          <div class="img_item fl" v-for="img in info.imglist_info" :style="{backgroundImage: `url(${$fixImg(img.link, 'w=110&h=110')})`}"></div>
         </div>
       </scroller>
 
@@ -40,22 +48,29 @@ import { RouterUtil } from '@/utils';
 import { Scroller } from 'vux';
 import HeaderImg from './../../header-img';
 import MusicLabel from './../../music-label';
+import IconDiscuss from './../../icon/discuss';
+import IconZan from './../../icon/zan';
 // // import icons from './../icon.js';
 
 export default {
     components: {
         Scroller,
         HeaderImg,
-        MusicLabel
+        MusicLabel,
+        IconDiscuss,
+        IconZan
     },
     props: {
+        type: [Number, String],
         info: Object
     },
     data() {
         return {
             musicInfo: {
                 type: 'music',
-                imgpic_link: '',
+                imgpic_info: {
+                    link: ''
+                },
                 id: 0,
                 title: '',
                 uid: 0,
@@ -70,7 +85,7 @@ export default {
     },
     computed: {
         scrollerWidth() {
-            return this.info.imglist_link ? this.getScrollerWidth(this.info.imglist_link) : 0;
+            return this.info.imglist_info ? this.getScrollerWidth(this.info.imglist_info) : 0;
         }
     },
     mounted() {
@@ -94,7 +109,7 @@ export default {
             });
         },
         setMusicInfo() {
-            this.musicInfo.imgpic_link = this.info.imgpic_link;
+            this.musicInfo.imgpic_info.link = this.info.imgpic_info ? this.info.imgpic_info.link : '';
             this.musicInfo.id = this.info.music_id;
             this.musicInfo.title = this.info.music_title;
             this.musicInfo.uid = this.info.music_uid;

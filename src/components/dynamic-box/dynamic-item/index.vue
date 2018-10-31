@@ -3,17 +3,17 @@
 <template>
   <div class="dynamic_item_component">
     <div class="singer_header">
-      <header-img class="fl" :size="70" :header-img="info.head_link" :vip="info.member_type==2"></header-img>
+      <header-img class="fl" :size="70" :header-img="info.head_info.link" :vip="info.is_music == 3"></header-img>
       <span class="name" :class="info.sex ? 'boy' : 'girl'" v-text="info.nickname"></span>
     </div>
     <p class="content" v-if="info.depict" v-text="info.depict"></p>
 
-    <ul class="img_box clear_float" v-if="info.imglist_link && info.imglist_link.length"
+    <ul class="img_box clear_float" v-if="info.imglist_info && info.imglist_info.length"
     :class="{
-        'two': info.imglist_link && info.imglist_link.length % 2 === 0 && info.imglist_link.length % 3 !== 0,
-        'three': info.imglist_link && info.imglist_link.length % 3 === 0,
+        'two': info.imglist_info && info.imglist_info.length % 2 === 0 && info.imglist_info.length % 3 !== 0,
+        'three': info.imglist_info && info.imglist_info.length % 3 === 0,
     }">
-        <li v-for="(img, index) in info.imglist_link" :style="{backgroundImage: getImg(img)}" v-if="index<6">
+        <li v-for="(img, index) in info.imglist_info" :style="{backgroundImage: getImg(img)}" v-if="index<6">
         </li>                  
     </ul>  
 
@@ -79,19 +79,19 @@ export default {
             return '';
         },
         getImg(img) {
-            if (!this.info.imglist_link) {
-                return;
+            // if (!this.info.imglist_info) {
+            //     return;
+            // }
+
+            if (this.info.imglist_info.length === 1) {
+                return `url(${this.$fixImg(img.link + '/750')})`;
             }
 
-            if (this.info.imglist_link.length === 1) {
-                return `url(${img}/750)`;
+            if (this.info.imglist_info.length % 2 === 0 && this.info.imglist_info.length % 3 !== 0) {
+                return `url(${this.$fixImg(img.link + '/375')})`;
             }
 
-            if (this.info.imglist_link.length % 2 === 0 && this.info.imglist_link.length % 3 !== 0) {
-                return `url(${img}/375)`;
-            }
-
-            return `url(${img}/230)`;
+            return `url(${this.$fixImg(img.link + '/230')})`;
         }
     }
 };

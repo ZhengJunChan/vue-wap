@@ -89,7 +89,7 @@
 
                 // this.config.disablePullup = false;
                 if (!this.config.disablePullup) {
-                    console.log('touchStart');
+                    // console.log('touchStart');
                     this.$el.querySelector('.load_more').style.display = 'block';
                 }
             },
